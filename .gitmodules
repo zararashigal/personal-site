@@ -1,0 +1,3 @@
+[submodule "yorha"]
+	path = yorha
+	url = https://github.com/metakirby5/yorha
