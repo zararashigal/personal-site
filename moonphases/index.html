@@ -234,13 +234,31 @@
         <script>
 
             /* Thanks to Jeroen Hammann for this <3 */
-            var sakura = new Sakura('body', {
+            var sakura = new Sakura('#bg2', {
 
+                minSize:5,
+                maxSize:15,
+                delay: 255,
                 colors: [
                     {
-                        gradientColorStart: 'rgba(255, 11, 11, 0.9)',
-                        gradientColorEnd: 'rgba(255, 77, 77, 0.9)',
+                        gradientColorStart: 'rgba(255, 0, 0, 0.9)',
+                        gradientColorEnd: 'rgba(33, 1, 1, 0.9)',
                         gradientColorDegree: 120,
+                    },
+                ]
+
+            })
+
+            var sakuraCurtain = new Sakura('#curtain', {
+                fallSpeed: 0.5,
+                minSize:5,
+                maxSize:14,
+                delay: 100,
+                colors: [
+                    {
+                        gradientColorStart: 'rgba(11, 11, 11, 0.9)',
+                        gradientColorEnd: 'rgba(33, 33, 33, 0.9)',
+                        gradientColorDegree: 90,
                     },
                 ]
 
