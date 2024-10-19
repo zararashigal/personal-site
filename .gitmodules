@@ -1,3 +1,6 @@
 [submodule "yorha"]
 	path = yorha
 	url = https://github.com/metakirby5/yorha
+[submodule "sakura"]
+	path = sakura
+	url = https://github.com/jhammann/sakura/
