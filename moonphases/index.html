@@ -169,7 +169,7 @@
         }
         #startbuttontext2 {
             text-align: center;
-            font-size:155%;  
+            font-size:175%;  
         }
 
         #moonInfo {
@@ -189,7 +189,22 @@
 
         #titleText {
             text-align: center;
-            font-size:155%;          
+            font-size:175%;          
+        }
+
+        #phaseInfo {
+            visibility: 0;
+            opacity: 0;
+            text-align: center;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%,-50%);    
+        }
+
+        #phaseText {
+            text-align: center;
+            font-size:255%;          
         }
 
     </style>
@@ -207,7 +222,11 @@
                 The Moon is Smiling
             </h2>
         </div>
-
+        <div id="phaseInfo">
+            <h2 id="phaseText">
+                The Moon is Smiling
+            </h2>
+        </div>
         <div class="sphere">
             <div class="light hemisphere"></div>
             <div class="dark hemisphere"></div>
@@ -218,10 +237,10 @@
 
         <div id="startinfo">
             <h2 id="startbuttontext1">
-                Click Play to see current Moon phases.
+                Zarashigal's Moon Phase Indicator
             </h2>
             <h2 id="startbuttontext2">
-                This app has Music. Be prepared for sound!
+                This app has Sound!
             </h2>
         </div>
 
@@ -287,10 +306,61 @@
             const secondsSinceKnownNewMoon = (date - knownNewMoon) / 1000
             const daysSinceKnownNewMoon = secondsSinceKnownNewMoon / 60 / 60 / 24
             const currentMoonPhasePercentage = (daysSinceKnownNewMoon % cycleLength) / cycleLength
-
+            console.log(currentMoonPhasePercentage*100)
             return 360 - Math.floor(currentMoonPhasePercentage * 360)
             }
+            /* 
+            * modified from http://www.voidware.com/moon_phase.htm 
+            */
 
+        function getMoonPhaseText (year, month, day)
+            {
+                var c = e = jd = b = retVal = 0;
+                if (month < 3) {
+                    year--;
+                    month += 12;
+                }
+                ++month;
+                c = 365.25 * year;
+                e = 30.6 * month;
+                jd = c + e + day - 694039.09;
+                jd /= 29.5305882;
+                b = parseInt(jd); 
+                jd -= b;
+                b = Math.round(jd * 8);
+                if (b >= 8 ) {
+                    b = 0;
+                }
+                switch (b) {
+                    case 0:
+                        retVal = "New Moon"
+                        break;
+                    case 1:
+                        retVal = "Waxing Crescent Moon"
+                        break;
+                    case 2:
+                        retVal = "Quarter Moon"
+                        break;
+                    case 3:
+                        retVal = "Waxing Gibbous Moon"
+                        break;
+                    case 4:
+                        retVal = "Waning Gibbous Moon"
+                        break;
+                    case 5:
+                        retVal = "Waning Gibbous Moon"
+                        break;
+                    case 6:
+                        retVal = "Last Quarter Moon"
+                        break;     
+                    case 7:
+                        retVal = "Waning Crescent Moon"
+                        break;                      
+                    default:
+                        break;
+                }
+                return retVal;
+            }
 
             /* The start button is pressed... */
             function startScene () {
@@ -299,20 +369,21 @@
                 fade("#startbuttontext2","fadeoutSceneQ")
                 fade("#startbtn","fadeoutSceneQ")
                 fade(".sphere","fadeinSceneS")
-
-                document.querySelector("#titleDate").innerHTML = document.querySelector("#titleDate").innerHTML.replace("#DATE", today.toDateString())
-
                 setTimeout(() => {
                     fade("#moonInfo","fadeinScene")
                 }, 1100);
-
-
+                setTimeout(() => {
+                    fade("#phaseInfo","fadeinScene")
+                }, 2100);
                 setInterval(mainloop(), 1000 / 10);
             }
 
             /* Moonrotatsey. */
             function moonRot (deg) {
+                document.querySelector("#titleDate").innerHTML = document.querySelector("#titleDate").innerHTML.replace("#DATE", today.toDateString())
+                document.querySelector("#phaseText").innerHTML = getMoonPhaseText(today.getFullYear(), today.getMonth()+1, today.getDate())
                 document.querySelector('.divider').style.transform = `rotate3d(0, 1, 0, ${deg}deg)`
+                console.log(deg)
                 const hemispheres = document.querySelectorAll('.hemisphere')
                 if (deg < 180) {
                     hemispheres[0].classList.remove('dark')
