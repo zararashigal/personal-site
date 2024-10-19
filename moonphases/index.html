@@ -56,22 +56,23 @@
 
         #startbtn {
             position: absolute;
-            width: 300px;
+            width: 50%;
+            font-size: 260%;
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10%;
             transform: translateX(-50%);
-            background-color: #00000000;
+            background-image: url("https://zarashigal.eu.org/moonphases/splot.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
             top: 50%;
             left: 50%;
-            text-align: center;
             color: #AF0000;
             cursor: pointer;
-        }
-
-        #startbg {
-            position: absolute;
-            width: 900px;
-            transform: translate(-56%,-26%);
-            top: 50%;
-            left: 50%;
         }
 
         .fadeoutScene {
@@ -154,46 +155,41 @@
             transform: rotateY(180deg);
         }
 
-        #titleDate {
+        #startinfo {
             text-align: center;
-            font-size:250%;
-            visibility: 0;
-            opacity: 0;
             position: absolute;
-            top: 10%;
+            top: 30%;
             left: 50%;
-            transform: translate(-50%,-50%);            
-        }
-
-        #titleText {
-            text-align: center;
-            font-size:215%;
-            visibility: 0;
-            opacity: 0;
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%,-50%);            
+            transform: translate(-50%,-50%);    
         }
 
         #startbuttontext1 {
             text-align: center;
-            cursor: none;
-            font-size:250%;
+            font-size:250%;  
+        }
+        #startbuttontext2 {
+            text-align: center;
+            font-size:155%;  
+        }
+
+        #moonInfo {
+            visibility: 0;
+            opacity: 0;
+            text-align: center;
             position: absolute;
             top: 15%;
             left: 50%;
-            transform: translate(-50%,-50%);            
+            transform: translate(-50%,-50%);    
         }
 
-        #startbuttontext2 {
+        #titleDate {
             text-align: center;
-            cursor: none;
-            font-size:215%;
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%,-50%);            
+            font-size:250%;          
+        }
+
+        #titleText {
+            text-align: center;
+            font-size:155%;          
         }
 
     </style>
@@ -203,16 +199,14 @@
     <body>
         
         <div id="bg2"></div>
-
-        <h2 id="titleDate">
-            #DATE
-        </h2>
-
-        <br />
-
-        <h2 id="titleText">
-            The Moon is Smiling
-        </h2>
+        <div id="moonInfo">
+            <h2 id="titleDate">
+                #DATE
+            </h2>
+            <h2 id="titleText">
+                The Moon is Smiling
+            </h2>
+        </div>
 
         <div class="sphere">
             <div class="light hemisphere"></div>
@@ -222,18 +216,16 @@
 
         <div id="curtain"></div>
 
-        <h2 id="startbuttontext1">
-            Click Play to see current Moon phases.
-        </h2>
+        <div id="startinfo">
+            <h2 id="startbuttontext1">
+                Click Play to see current Moon phases.
+            </h2>
+            <h2 id="startbuttontext2">
+                This app has Music. Be prepared for sound!
+            </h2>
+        </div>
 
-        <br />
-
-        <h2 id="startbuttontext2">
-            This app has Music. Be prepared for sound!
-        </h2>
-
-        <img id="startbg" src="https://zarashigal.eu.org/moonphases/splot.svg"/>
-        <div id="startbtn" onclick="startScene()"><h1>▶</h1></div>
+        <div id="startbtn" onclick="startScene()">▶</div>
 
         <script>
 
@@ -302,9 +294,7 @@
 
             /* The start button is pressed... */
             function startScene () {
-                fade("#startbg","fadeoutSceneQ")
                 fade("#curtain","fadeoutScene")
-                fade("#startbtn","fadeoutSceneQ")
                 fade("#startbuttontext1","fadeoutSceneQ")
                 fade("#startbuttontext2","fadeoutSceneQ")
                 fade("#startbtn","fadeoutSceneQ")
@@ -313,12 +303,8 @@
                 document.querySelector("#titleDate").innerHTML = document.querySelector("#titleDate").innerHTML.replace("#DATE", today.toDateString())
 
                 setTimeout(() => {
-                    fade("#titleDate","fadeinScene")
+                    fade("#moonInfo","fadeinScene")
                 }, 1100);
-                
-                setTimeout(() => {
-                    fade("#titleText","fadeinScene")
-                }, 2200);
 
 
                 setInterval(mainloop(), 1000 / 10);
