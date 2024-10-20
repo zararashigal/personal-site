@@ -105,6 +105,23 @@
             transition: opacity 3s linear;
         }
 
+        .spherecomposite {
+            border-radius: 100%;
+            width: 20vw;
+            height: 20vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: url("https://zarashigal.eu.org/moonphases/paper.png");
+            opacity: 1;
+            mix-blend-mode: multiply;
+            margin-bottom: 50px;
+        }
+
         .sphere {
             visibility: 0;
             opacity: 0;
@@ -118,7 +135,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            background: #000000;
+            background: #00000000;
             margin-bottom: 50px;
         }
 
@@ -132,7 +149,7 @@
         }
 
         .dark {
-            background-color: #160006;
+            background-color: #423032;
         }
         .divider, .divider:after {
             top: 0;
@@ -146,7 +163,7 @@
         }
 
         .divider {
-            background-color: #160006;
+            background-color: #423032;
         }
 
         .divider:after {
@@ -231,6 +248,9 @@
             <div class="light hemisphere"></div>
             <div class="dark hemisphere"></div>
             <div class="divider"></div>
+        </div>
+        <div class="spherecomposite">
+
         </div>
 
         <div id="curtain"></div>
