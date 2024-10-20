@@ -1,161 +1,112 @@
+
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
 
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>I'm Zarashigal!</title>
+    <title>Why are you here?</title>
 
-  <meta name="author" content="Zarashigal">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Zarashigal">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Thx to metakirby5 for the lovely css theme!! <3 -->
-  <link href="https://zarashigal.eu.org/yorha/dist/yorha.min.css" rel="stylesheet">
-  
-  <style>
-    #avatar {
-      width: 85px;
-      height: auto;
-      float: left;
-      padding-right: 10px;
-    }
-  </style>
+    <!-- Thx to Jeroen Hammann for the lovely sakura petals!! <3 -->
+    <link href="https://zarashigal.eu.org/sakura/dist/sakura.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
 
-</head>
+    <style>
+        
+        html, body {margin: 0; height: 100%; overflow: hidden}
 
-<body>
-  <figure style="font-size:25px; display: inline-block;">
-        <img id="avatar" src="2b.png"></img> 
-        <h3 style="float: right; line-height: 80px; vertical-align:middle">Zarashigal</h3>
-  </figure>
-
-  <h2>Zarashigal &gt&gt Info</h2>
-  <figure>
-    <h4>Zarashigal is a GEN 2 android of the ARCHITECT class. They possess a few additional modules.</h4>
-  </figure>
-
-  <h2>Zarashigal &gt&gt Usage</h2>
-  <figure>
-    <h4>The GEN 2 ARCHITECT class is used for Research, Science, Programming</h4>
-  </figure>
-
-  <h2>Zarashigal &gt&gt Stats</h2>
-  <figure>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th width="55%">Stat</th>
-            <th>Value (Percentage)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Social Efficiency</td>
-            <td>15%</td>
-          </tr>
-          <tr>
-            <td>Coding</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>Problem Solving</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>Networking</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>RED Security</td>
-            <td>55%</td>
-          </tr>
-          <tr>
-            <td>BLUE Security</td>
-            <td>35%</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </figure>
-  
-  <h2>Zarashigal &gt&gt Modules</h2>
-  <figure>
-    <figure>
-      <figcaption>Scanner Lv. 90</figcaption>
-      <h3>Zarashigal is capable of determining threat levels efficiently.</h3>
-    </figure>
-    <figure>
-      <figcaption>Maid Lv. 50</figcaption>
-      <h3>Zarashigal is capable of decorating, cleaning a space and serving guests.</h3>
-    </figure>
-    <figure>
-      <figcaption>Cooking Lv. 50</figcaption>
-      <h3>Zarashigal is capable of cooking intermediate meals.</h3>
-    </figure>
-    <figure>
-      <figcaption>Jailbreak Lv. 99</figcaption>
-      <h3>Teaching this character new things will take less time.</h3>
-    </figure> 
-  </figure>
-
-  <h2>Zarashigal &gt&gt Skills</h2>
-  <figure>
-
-    <figure>
-      <figcaption>Choppy Framerate</figcaption>
-      <h3>Upon execution, get a fresh meal prepared and served for the whole party.</h3>
-    </figure>    
-
-    <figure>
-      <figcaption>Polymathemancy</figcaption>
-      <h3>Gain an inherent 85% chance of understanding any new Coding language.</h3>
-    </figure>
-
-    <figure>
-      <figcaption>Digistructed Thorn</figcaption>
-      <h3>Knows how to exploit and circumvent the OWASP Top 10 Vulnerabilities.</h3>
-    </figure>
-
-    <figure>
-      <figcaption>Brew of Dawn (Java)</figcaption>
-      <h3>Gain 75% Java knowledge.</h3>
-    </figure>
-
-    <figure>
-      <figcaption>Coffee is served! (JS)</figcaption>
-      <h3>Gain 100% JavaScript knowledge.</h3>
-    </figure>
-
-    <figure>
-      <figcaption>Jailbreak Override</figcaption>
-      <h3>Use 1x Contract Points to emphasize command execution. overrides Personal Bias.</h3>
-    </figure>
-
-    <figure>
-      <figcaption>Divine Intervention (Tech)</figcaption>
-      <h3>Sacrifice 1x Problem for 1x Solution. Has a 10% chance of success, multiplied with Problem Solving stat. Problem must be technology-related.</h3>
-    </figure>
-
-  </figure>
-
-  <h2>Zarashigal &gt&gt YoRHa Badge</h2>
-
-  <figure style="display: inline-block;"><figure style="display: inline-block;">
-
-    <figcaption>YoRHa No. 23Z [Zarashigal]</figcaption>
-    <h3>Scan:</h3>
-    <img style="width: 260px; height:auto; "src="qr.png"></img>
-    <br />
-    <h3>Or:</h3>
-    <form action="mailto:zarashigal.blast779@passinbox.com">
-      <input type="submit" value="Form a Contract with Zarashigal" />
-    </form>
+        body {
+            font-family: "Nanum Brush Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+            background: #000000;
+        }
     
-  </figure></figure>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
 
-</body>
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+
+        .flex-item-left {
+            text-decoration: none;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option1.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            flex: 50%;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: #000000 8px 2px 8px;
+            transition: 0.3s;
+        }
+
+        .flex-item-right {
+            text-decoration: none;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            flex: 50%;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: #000000 8px 2px 8px;
+            transition: 0.3s;
+        }
+
+        .flex-item-right:hover {
+            cursor:pointer;
+            box-shadow: inset 0 0 300px 55px #000000FF;
+            text-shadow: #b80000 8px 2px 8px;
+        }
+
+        .flex-item-left:hover {
+            cursor:pointer;
+            box-shadow: inset 0 0 300px 55px #000000FF;
+            text-shadow: #b80000 8px 2px 8px;
+        }
+        
+        #title1 {
+            margin-top: 250px;
+        }
+
+        .title1 {
+            font-size: 64px;
+            margin-top: 50%;
+        }
+
+        @media (max-width: 800px) {
+            .title1 {
+                font-size: 42px;
+                margin-top: 35%;
+            }
+        }
+    </style>
+
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <a href="https://zarashigal.eu.org/moonphases" class="flex-item-left">
+                <h1 class="title1">I'm here for the Moonphases</h1>
+            </a>
+            <a href="https://zarashigal.eu.org/about" class="flex-item-right">
+                <h1 class="title1">I'm here to get to know Zarashigal</h1>
+            </a>
+          </div>
+    </body>
 
 </html>
