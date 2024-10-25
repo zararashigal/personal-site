@@ -17,9 +17,7 @@
     <meta content="https://zarashigal.eu.org" property="og:url" />
     <meta content="https://zarashigal.eu.org/about/2b.png" property="og:image" />
     <meta content="#000000" data-react-helmet="true" name="theme-color" />
-    
-    <!-- Thx to Jeroen Hammann for the lovely sakura petals!! <3 -->
-    <link href="https://zarashigal.eu.org/sakura/dist/sakura.min.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
@@ -47,9 +45,8 @@
             }
         }
 
-        .flex-item-left {
+        .flex-items {
             text-decoration: none;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option1.png");
             background-repeat: no-repeat;
             background-size: cover;
             padding: 0;
@@ -58,35 +55,24 @@
             color: #FFFFFF;
             text-shadow: #000000 8px 2px 8px;
             transition: 0.3s;
+        }
+
+        .flex-item-left {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option1.png");
         }
 
         .flex-item-right {
-            text-decoration: none;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option2.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 0;
-            flex: 50%;
-            text-align: center;
-            color: #FFFFFF;
-            text-shadow: #000000 8px 2px 8px;
-            transition: 0.3s;
+        }
+    
+        .flex-item-middle {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("https://zarashigal.eu.org/option3.jpg");
         }
 
-        .flex-item-right:hover {
+        .flex-items:hover {
             cursor:pointer;
             box-shadow: inset 0 0 300px 55px #000000FF;
             text-shadow: #b80000 8px 2px 8px;
-        }
-
-        .flex-item-left:hover {
-            cursor:pointer;
-            box-shadow: inset 0 0 300px 55px #000000FF;
-            text-shadow: #b80000 8px 2px 8px;
-        }
-        
-        #title1 {
-            margin-top: 250px;
         }
 
         .title1 {
@@ -106,10 +92,13 @@
 
     <body>
         <div class="flex-container">
-            <a href="https://zarashigal.eu.org/moonphases" class="flex-item-left">
+            <a href="https://zarashigal.eu.org/moonphases" class="flex-items flex-item-left">
                 <h1 class="title1">I'm here for the Moonphases</h1>
             </a>
-            <a href="https://zarashigal.eu.org/about" class="flex-item-right">
+            <a href="https://zarashigal.eu.org/dailyframe" class="flex-items flex-item-middle">
+                <h1 class="title1">I'm here for the Warframe Intel</h1>
+            </a>
+            <a href="https://zarashigal.eu.org/about" class="flex-items flex-item-right">
                 <h1 class="title1">I'm here to get to know Zarashigal</h1>
             </a>
           </div>

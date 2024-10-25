@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+    <meta charset="utf-8">
+
+    <title>Zarashigal.eu.org - Daily Warframe Intel</title>
+
+    <meta name="author" content="Zarashigal">
+    <meta name="description" content="Hi, i'm Zarashigal and this is my Daily Warframe Intel!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta content="Zarashigal.eu.org - Daily Warframe Intel" property="og:title" />
+    <meta content="Hi, i'm Zarashigal and this is my Daily Warframe Intel!" property="og:description" />
+    <meta content="https://zarashigal.eu.org/dailyframe" property="og:url" />
+    <meta content="https://zarashigal.eu.org/about/2b.png" property="og:image" />
+    <meta content="#000000" data-react-helmet="true" name="theme-color" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+
+    <style>
+        
+        html, body {margin: 0; height: 100%;}
+
+        body {
+            font-family: "Economica";
+            font-weight: 400;
+            font-style: normal;
+            background: #000000;
+        }
+    
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+
+        .flex-items {
+            box-shadow: #000000 inset 0 0 50px;
+            text-decoration: none;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            flex: 50%;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: #000000 8px 2px 8px;
+            transition: 0.3s;
+        }
+
+        .title1 {
+            font-size: 64px;
+        }
+
+        @media (max-width: 800px) {
+            .title1 {
+                font-size: 42px;
+            }
+        }
+
+        .content1 {
+            font-size: 21px;
+        }
+
+        @media (max-width: 800px) {
+            .content1 {
+                font-size: 21px;
+            }
+        }
+        
+    </style>
+
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <div class="flex-items" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.51),rgba(0, 0, 0, 0.5)), url('https://zarashigal.eu.org/dailyframe/cetus.png');">
+                <h1 class="title1">INFO: UNDER CONSTRUCTION</h1>
+                <p class="content1">Everything on this page is subject to change!</p>
+            </div>
+            <div class="flex-items" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.51),rgba(0, 0, 0, 0.5)), url('https://zarashigal.eu.org/dailyframe/alerts.jpg');">
+                <h1 class="title1">Current Alerts:</h1>
+                <p id="alerts" class="content1">Loading Warframe Worldstate API...</p>
+            </div>
+          </div>
+
+          <script type="text/javascript">
+            
+            let API = `https://corsproxy.io/?${encodeURIComponent("http://content.warframe.com/dynamic/worldState.php")}`
+            let APINodes = `https://raw.githubusercontent.com/WFCD/warframe-worldstate-data/refs/heads/master/data/solNodes.json`
+            var alerts = new String();
+
+            async function getNodeInfo (node) {
+
+                let nodeInfoRaw = await fetch(APINodes, { 
+                    method: 'GET'
+                })
+                
+                let nodeInfo = await nodeInfoRaw.json()
+
+                return await nodeInfo[node]
+
+            }
+            
+            async function getWorldState (url) {
+
+                let worldStateRaw = await fetch(url, { 
+                    method: 'GET'
+                })
+                
+                let worldState = await worldStateRaw.json()
+
+                await worldState.ActiveMissions.forEach((e) => {
+
+                    getNodeInfo(e.Node).then((n) => { 
+                        alerts = alerts + `<br />${n.value} - ${n.enemy} ${n.type}`
+                    })
+
+                    .then((_) => {
+                        populate("#alerts", alerts)
+                    })
+
+                });
+                
+
+            }
+
+            async function populate (id, contents) {
+                console.log(contents)
+                document.querySelector(id).innerHTML = contents;
+            }
+
+            getWorldState(API)
+            
+
+          </script>
+    </body>
+
+</html>
