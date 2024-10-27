@@ -46,7 +46,7 @@
         }
 
         .infoEntry {
-            box-shadow: inset 0px 25px 50px -40px rgba(255, 255, 255, 0.75);
+            text-shadow: #000000 8px 2px 8px;
         }
 
         .flex-items {
@@ -64,6 +64,7 @@
 
         .title1 {
             font-size: 64px;
+            text-shadow: #000000 8px 2px 8px;
         }
 
         @media (max-width: 800px) {
@@ -83,7 +84,8 @@
         }
         
         .separator {
-            border: 1px solid #FFFFFF54;
+            background: radial-gradient(circle, #FFFFFF 0%, #00000000 90%);
+            height: 2px;
         }
 
     </style>
@@ -91,17 +93,20 @@
     </head>
 
     <body>
+
         <div class="flex-container">
-            <div class="flex-items" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.51),rgba(0, 0, 0, 0.5)), url('https://zarashigal.eu.org/dailyframe/cetus.png');">
-                <h1 class="title1">INFO: UNDER CONSTRUCTION</h1>
-                <p class="content1">Everything on this page is subject to change!</p>
+            <div class="flex-items" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.51),rgba(0, 0, 0, 0.5)), url('https://zarashigal.eu.org/dailyframe/dailydeals.jpg');">
+                <h1 class="title1">Daily Deals</h1>
+                <p id="deals" class="content1">Loading Warframe Worldstate API...</p>
             </div>
+        </div>
+
+        <div class="flex-container">
             <div class="flex-items" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.51),rgba(0, 0, 0, 0.5)), url('https://zarashigal.eu.org/dailyframe/alerts.jpg');">
                 <h1 class="title1">Current Alerts:</h1>
                 <p id="alerts" class="content1">Loading Warframe Worldstate API...</p>
             </div>
-          </div>
-
+        </div>
           <script type="text/javascript" src="./definitions.js"></script>
 
           <script type="text/javascript">
