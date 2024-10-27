@@ -45,6 +45,10 @@
             }
         }
 
+        .infoEntry {
+            box-shadow: inset 0px 25px 50px -40px rgba(255, 255, 255, 0.75);
+        }
+
         .flex-items {
             box-shadow: #000000 inset 0 0 50px;
             text-decoration: none;
@@ -78,6 +82,10 @@
             }
         }
         
+        .separator {
+            border: 1px solid #FFFFFF54;
+        }
+
     </style>
 
     </head>
@@ -94,11 +102,29 @@
             </div>
           </div>
 
+          <script type="text/javascript" src="./definitions.js"></script>
+
           <script type="text/javascript">
             
             let API = `https://corsproxy.io/?${encodeURIComponent("http://content.warframe.com/dynamic/worldState.php")}`
             let APINodes = `https://raw.githubusercontent.com/WFCD/warframe-worldstate-data/refs/heads/master/data/solNodes.json`
+            let APILanguage = `https://raw.githubusercontent.com/WFCD/warframe-worldstate-data/refs/heads/master/data/languages.json`
+            
+            var langInfo = {}
+
             var alerts = new String();
+
+            async function getDefinition (str) {
+
+                let strInfoRaw = await fetch(APILanguage, { 
+                    method: 'GET'
+                })
+
+                let strInfo = await strInfoRaw.json()
+
+                return await strInfo[str]
+
+            }
 
             async function getNodeInfo (node) {
 
@@ -114,16 +140,27 @@
             
             async function getWorldState (url) {
 
+                let langRaw = await fetch(APILanguage, { 
+                    method: 'GET'
+                })
+
+                langInfo = await langRaw.json()
+
+
                 let worldStateRaw = await fetch(url, { 
                     method: 'GET'
                 })
                 
                 let worldState = await worldStateRaw.json()
 
-                await worldState.ActiveMissions.forEach((e) => {
+                console.log(worldState)
 
-                    getNodeInfo(e.Node).then((n) => { 
-                        alerts = alerts + `<br />${n.value} - ${n.enemy} ${n.type}`
+                await worldState.Alerts.forEach((e) => {
+
+                    getNodeInfo(e.MissionInfo.location).then((n) => { 
+                        alerts = alerts + `<br /><div class="infoEntry"><div class="separator"></div><h2>ALERT: ${e.Tag}</h2>${n.value} - ${n.enemy} ${n.type}<h2>Rewards</h2> ${e.MissionInfo.missionReward.credits ? e.MissionInfo.missionReward.credits + " Credits" : ""}</div>`
+                        e.MissionInfo.missionReward.items.forEach((item) => {alerts = alerts + `<br />${langInfo[item] ? langInfo[item].value : item.split("/")[item.split("/").length-1]}`})
+                        alerts = alerts + "<br />"
                     })
 
                     .then((_) => {
@@ -136,7 +173,6 @@
             }
 
             async function populate (id, contents) {
-                console.log(contents)
                 document.querySelector(id).innerHTML = contents;
             }
 
