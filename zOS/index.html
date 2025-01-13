@@ -48,7 +48,9 @@
 
         body {
             background: url("./wp1.png");
-            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 100% 100%;
             background-repeat: no-repeat;
         }
         
@@ -194,6 +196,9 @@
             text-align: center;
             vertical-align: middle;
             cursor: pointer;
+            background-size: 32px;
+            background-position: center;
+            background-repeat: no-repeat;
 
         }
 
@@ -228,14 +233,16 @@
     </div>
 
     <div id="navTop">
-        <div class="navTopContent">🌸 zOS</div>
+        <div class="navTopContent">🌸</div>
+        <div class="navTopContent">zOS Workbench</div>
+        <div style="float: right; text-align: right; padding-right: 64px;" class="navTopContent" id="navClock"></div>
     </div>
 
     <div id="workBench"></div>
 
     <div id="nav">
-        <div id="btn-1" onclick="btn1UiCallback ()" class="retrobtn">❓</div>
-        <div id="btn-2" onclick="btn2UiCallback ()" class="retrobtn">🫖</div>
+        <div id="btn-1" style="background-image: url('notes.png');" onclick="btn1UiCallback ()" class="retrobtn"></div>
+        <div id="btn-2" style="background-image: url('tea.png');" onclick="btn2UiCallback ()" class="retrobtn"></div>
     </div>
 
     <div class="crt"></div>
@@ -256,10 +263,14 @@
         let bootAudio = new Audio();
         bootAudio.src = bootSnd;
 
+        let clocksey = new Date();
+
         // UI Helpers
+
 
         // Music...
         function mainloop () {
+            document.getElementById("navClock").innerHTML = `${clocksey.toLocaleTimeString()}`
             song.play();
             if (song.paused == true) {
                 song.play();
