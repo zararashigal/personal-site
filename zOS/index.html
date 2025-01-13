@@ -307,14 +307,15 @@
             e.appendChild (eTitleBar);
             e.appendChild (eContent);
 
-            eTitleBar.appendChild (eTitleBarBtnClose);
-            
             eTitleBarBtnClose.innerHTML = "X";
             eTitleBarBtnClose.onclick = () => {zOSPopupClose (id)};
+
+            eTitleBar.appendChild (eTitleBarBtnClose);
             eTitleBar.appendChild (eTitleBarTitle);
+
             eTitleBarTitle.innerHTML = `<p>${title}</p>`;
 
-            dragWindow (e)
+            dragWindow (e);
 
             stackID++;
 
@@ -358,13 +359,20 @@
         // Login!
         function login () {
 
+            // We login and remove the screen...
             loginScreen.style.display = "none";
-            song.play();
+            
+            // Boot sound...
             bootAudio.play();
+
+            // Song...
+            setTimeout(() => {
+                song.play();
+            },1000)
 
             // Clocksey!
             setInterval(() => {
-                document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`
+                document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`;
             }, 1000);
 
         }
