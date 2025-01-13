@@ -401,23 +401,22 @@
                     <br />
                     ~ Baibai, <br />
                     ~ Yours Truly, Zarashigal
-                </p>`, 
+                </p>`, stackID+Math.random(9e9));
 
-            stackID+Math.random(9e9));
         }
 
         function notes_slot2 (t) {
+
             zOSPopupOpen (`Notepad (/home/root/${t})`, 
             
             `<p>
                 Well well, look who was nosey!<br /><br />I TOLD YOU NOT TO OPEN IT~ <br />Now look what you've done! HA!!
             </p>
 
-            <video autoplay style="width:300px;height:200px">
+            <video id="soundOverride" autoplay style="width:300px;height:200px">
                  <source src="private.mp4" type="video/mp4">
-            </video>`, 
+            </video>`, stackID+Math.random(9e9));
 
-            stackID+Math.random(9e9));
         }
     
         // Login!
@@ -431,13 +430,20 @@
 
             // Song...
             setTimeout(() => {
+
                 song.play();
-                song.volume = 0.4
+                song.volume = 0.3;
+
             },1000)
 
             // Clocksey!
             setInterval(() => {
                 document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`;
+                if (document.getElementById("soundOverride") == null) {
+                    song.volume = 0.3;
+                } else {
+                    song.volume = 0;
+                }
             }, 1000);
 
         }
