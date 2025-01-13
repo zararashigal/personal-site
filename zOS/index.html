@@ -218,7 +218,7 @@
         .formbtn {
 
             background: #ABABAB;
-            width: 100px;
+            width: auto;
             height: auto;
             display: inline;
             float:left;
@@ -333,27 +333,91 @@
         // UI Callbacks
         // Button 1
         function btn1UiCallback () {
-            zOSPopupOpen ("Notes", `<div class="formbtn" onclick="note1 ()">HaiHai.txt</div>`, stackID+Math.random(9e9));
+
+            let paths = `<div class="formbtn" onclick="notes_slot1 ('haihai.txt')">haihai.txt</div>`;
+            paths = paths + `<div class="formbtn" onclick="notes_slot2 ('privateDoNotOpen.txt')">privateDoNotOpen.txt</div>`;
+
+            zOSPopupOpen ("Notes", paths, stackID+Math.random(9e9));
+
         }
 
         // Button 2
         function btn2UiCallback () {
-            zOSPopupOpen ("Bubble Tea", `<div class="formbtn" onclick="tea1 ()">Chai Tapioca</div><div class="formbtn" onclick="tea2 ()">Voidberry</div>`, stackID+Math.random(9e9));
+
+            let paths = `<div class="formbtn" onclick="tea_slot1 ()">Chai Tapioca</div>`;
+            paths = paths + `<div class="formbtn" onclick="tea_slot2 ()">Voidberry</div>`;
+            
+            zOSPopupOpen ("Bubble Tea", paths, stackID+Math.random(9e9));
+
         }
 
         // Tea 1
-        function tea1 () {
-            zOSPopupOpen ("Chai Tapioca", `<p>Ingredients:<br />Tapioca, Honey, Black Tea, one cup of Half n Half cream, a little Pumpkin Spice, a Milk Frother<br /><br />Procedure:<br />Cook Tapioca, then add a little Water and Honey to it~<br />Put Tapioca into cup, followed by half a cup frothed Half n Half cream. :3<br />Add Honey to the mix.<br />Pour your Tea until it's about 2/3rd full.<br />Pour the rest of the cream atop.<br />Sprinkle pumpkin spice ontop, add straw!</p>`, stackID+Math.random(9e9));
+        function tea_slot1 () {
+
+            zOSPopupOpen ("Chai Tapioca", 
+
+                `<p>
+                    Ingredients:<br />
+                    Tapioca, Honey, Black Tea, one cup of Half n Half cream, a little Pumpkin Spice, a Milk Frother
+                    <br />
+                    <br />
+                    Procedure:<br />
+                    Cook Tapioca, then add a little Water and Honey to it~<br />
+                    Put Tapioca into cup, followed by half a cup frothed Half n Half cream. :3<br />
+                    Add Honey to the mix.<br />
+                    Pour your Tea until it's about 2/3rd full.<br />
+                    Pour the rest of the cream atop.<br />
+                    Sprinkle pumpkin spice ontop, add straw!
+                </p>`, 
+
+            stackID+Math.random(9e9));
+
         }
 
         // Tea 2
-        function tea2 () {
-            zOSPopupOpen ("Voidberry", `<p>It's not even summer yet, are you insane? xD</p>`, stackID+Math.random(9e9));
+        function tea_slot2 () {
+
+            zOSPopupOpen ("Voidberry", 
+
+                `<p>
+                    It's not even summer yet, are you insane? xD
+                </p>`, 
+
+            stackID+Math.random(9e9));
+
         }
 
         // Notes
-        function note1 () {
-            zOSPopupOpen ("Notepad (/home/root/HaiHai.txt)", "<p>Haihai~!<br />If you found this, you're either a friend of mine or a very, very curious person.<br />...Time will tell if that is good or bad!<br /><br />This is my secret little corner. I don't know what i will do with this place yet, but i will most likely build an archive of sorts here. Of things i learned, things i find and all sorts knowledge.<br /><br />~ Baibai, <br />~ Yours Truly, Zarashigal</p>", stackID+Math.random(9e9));
+        function notes_slot1 (t) {
+            
+            zOSPopupOpen (`Notepad (/home/root/${t})`, 
+            
+                `<p>
+                    Haihai~!<br />If you found this, you're either a friend of mine or a very, very curious person.<br />
+                    ...Time will tell if that is good or bad!<br /><br />
+                    This is my secret little corner. I don't know what i will do with this place yet, but i will most likely build an archive of sorts here. 
+                    Of things i learned, things i find and all sorts knowledge.
+                    <br />
+                    <br />
+                    ~ Baibai, <br />
+                    ~ Yours Truly, Zarashigal
+                </p>`, 
+
+            stackID+Math.random(9e9));
+        }
+
+        function notes_slot2 (t) {
+            zOSPopupOpen (`Notepad (/home/root/${t})`, 
+            
+            `<p>
+                Well well, look who was nosey!<br /><br />I TOLD YOU NOT TO OPEN IT~ <br />Now look what you've done! HA!!
+            </p>
+
+            <video autoplay style="width:300px;height:200px">
+                 <source src="private.mp4" type="video/mp4">
+            </video>`, 
+
+            stackID+Math.random(9e9));
         }
     
         // Login!
@@ -368,6 +432,7 @@
             // Song...
             setTimeout(() => {
                 song.play();
+                song.volume = 0.4
             },1000)
 
             // Clocksey!
