@@ -280,16 +280,6 @@
 
         // UI Helpers
 
-
-        // Music...
-        function mainloop () {
-            document.getElementById("navClock").innerHTML = `${clocksey.toLocaleTimeString()}`
-            song.play();
-            if (song.paused == true) {
-                song.play();
-            }
-        }
-
         // Open window...
         function zOSPopupOpen (title, content, id) {
             
@@ -366,8 +356,13 @@
         function login () {
 
             loginScreen.style.display = "none";
-            mainloop ();
+            song.play();
             bootAudio.play();
+
+            // Clocksey!
+            setInterval(() => {
+                document.getElementById("navClock").innerHTML = `${clocksey.toLocaleTimeString()}`
+            }, 1000);
 
         }
 
@@ -415,6 +410,7 @@
             document.onmousemove = null;
 
         }
+        
     }
 
     </script>
