@@ -146,13 +146,16 @@
         }
 
         .zOSTitleBar {
+
             width: 100%;
             height: 24px;
             background: #858585;
             border-bottom: 1px solid #000000;
+
         }
 
-        .zOSTitleBarTitle *{
+        .zOSTitleBarTitle * {
+
             width: 100%;
             height: 6%;
             color :#000000;
@@ -161,9 +164,11 @@
             padding: 0.5%;
             background: #85858500;
 
+
         }
 
         #workBench {
+
             background: #00000000;
             position: fixed;
             top: 28px;
@@ -171,9 +176,11 @@
             height: 80vh;
             z-index: 1337;
             width: 100%;
+
         }
 
         .retrobtn {
+
             background: #ABABAB;
             width: 50px;
             height: 70%;
@@ -187,6 +194,26 @@
             text-align: center;
             vertical-align: middle;
             cursor: pointer;
+
+        }
+
+        .formbtn {
+
+            background: #ABABAB;
+            width: 100px;
+            height: auto;
+            display: inline;
+            float:left;
+            margin-left: 1%;
+            margin-top: 2%;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            font-size: 24px;
+            padding: 16px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+
         }
 
     </style>
@@ -217,7 +244,7 @@
 
         // Vars and definitions
         let loginScreen = document.getElementById("loginScreen")
-        let winID = 1;
+        let stackID = 1;
         let stackingMultiplier = 12;
         let workBench = document.getElementById ("workBench");
 
@@ -260,8 +287,8 @@
             eTitleBarTitle.classList.add ("zOSTitleBarTitle");
             eTitleBarBtnClose.classList.add ("zOSTitleBarBtn");
 
-            e.style.top = winID * stackingMultiplier;
-            e.style.left = winID * stackingMultiplier;
+            e.style.top = stackID * stackingMultiplier;
+            e.style.left = stackID * stackingMultiplier;
 
             workBench.appendChild (e);
             
@@ -277,7 +304,7 @@
 
             dragWindow (e)
 
-            winID++;
+            stackID++;
 
         }
 
@@ -286,19 +313,29 @@
             
             let e = document.getElementById (`zOS_WIN_${id}`);
             e.remove();
-            winID--;
+            stackID--;
 
         }
 
         // UI Callbacks
         // Button 1
         function btn1UiCallback () {
-            zOSPopupOpen ("Bubble Tea", "<p>This is where i will put some recipes soon!</p>", winID);
+            zOSPopupOpen ("Notes", "<p>This is my secret little corner. I don't know what i will do with this place yet, but i will most likely build an archive of sorts here. Of things i learned, things i find and all sorts knowledge.</p>", stackID);
         }
 
         // Button 2
         function btn2UiCallback () {
-            
+            zOSPopupOpen ("Bubble Tea", `<div class="formbtn" onclick="tea1 ()">Chai Tapioca</div><div class="formbtn" onclick="tea2 ()">Voidberry</div>`, stackID+Math.random(9e9));
+        }
+
+        // Tea 1
+        function tea1 () {
+            zOSPopupOpen ("Chai Tapioca", `<p>Ingredients:<br />Tapioca, Honey, Black Tea, Half n Half cream<br /><br />Procedure:<br />PLACEHOLDER</p>`, stackID+Math.random(9e9));
+        }
+
+        // Tea 2
+        function tea2 () {
+            zOSPopupOpen ("Voidberry", `<p>It's not even summer yet, are you insane? xD</p>`, stackID+Math.random(9e9));
         }
 
         // Login!
