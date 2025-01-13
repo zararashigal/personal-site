@@ -332,7 +332,7 @@
         // UI Callbacks
         // Button 1
         function btn1UiCallback () {
-            zOSPopupOpen ("Notes", "<p>This is my secret little corner. I don't know what i will do with this place yet, but i will most likely build an archive of sorts here. Of things i learned, things i find and all sorts knowledge.</p>", stackID);
+            zOSPopupOpen ("Notes", `<div class="formbtn" onclick="note1 ()">HaiHai.txt</div>`, stackID+Math.random(9e9));
         }
 
         // Button 2
@@ -350,6 +350,11 @@
             zOSPopupOpen ("Voidberry", `<p>It's not even summer yet, are you insane? xD</p>`, stackID+Math.random(9e9));
         }
 
+        // Notes
+        function note1 () {
+            zOSPopupOpen ("Notepad (/home/root/HaiHai.txt)", "<p>Haihai~!<br />If you found this, you're either a friend of mine or a very, very curious person.<br />...Time will tell if that is good or bad!<br /><br />This is my secret little corner. I don't know what i will do with this place yet, but i will most likely build an archive of sorts here. Of things i learned, things i find and all sorts knowledge.<br /><br />~ Baibai, <br />~ Yours Truly, Zarashigal</p>", stackID+Math.random(9e9));
+        }
+    
         // Login!
         function login () {
 
