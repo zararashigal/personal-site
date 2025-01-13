@@ -9,7 +9,7 @@
             height: 100vh;
             top: 0;
             left: 0;
-            z-index: 9999;
+            z-index: 999999;
         }
 
         #avatar {
@@ -61,7 +61,7 @@
             bottom: 0;
             right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 10000;
+            z-index: 9999999;
             width: 100%;
             pointer-events: none;
             animation: flickerflickerly 0.001s infinite;
@@ -84,10 +84,12 @@
             height: 60px;
             border-top: 3px solid #000000;
             border-bottom: 3px solid #000000;
+            z-index: 99999;
             
         }
 
         #navTop {
+
             position: fixed;
             display: inline;
             float:left;
@@ -98,11 +100,13 @@
             height: 24px;
             border-top: 3px solid #000000;
             border-bottom: 3px solid #000000;
+            z-index: 99999;
             
         }
 
 
         .zOSTitleBarBtn {
+
             background: #ABABAB;
             width: 24px;
             height: 18px;
@@ -116,9 +120,11 @@
             text-align: center;
             vertical-align: middle;
             cursor: pointer;
+
         }
 
         .navTopContent {
+
             background: #00000000;
             width: 2.5%;
             height: 60%;
@@ -126,6 +132,7 @@
             margin-left: 1%;
             font-size: 18px;
             cursor: pointer;
+
         }
 
         .zOSPopup {
@@ -249,6 +256,7 @@
             eContent.style.paddingTop = "0";
 
             eTitleBar.classList.add ("zOSTitleBar");
+            eTitleBar.id = `zOS_WIN_${id}_TITLEBAR`
             eTitleBarTitle.classList.add ("zOSTitleBarTitle");
             eTitleBarBtnClose.classList.add ("zOSTitleBarBtn");
 
@@ -267,6 +275,8 @@
             eTitleBar.appendChild (eTitleBarTitle);
             eTitleBarTitle.innerHTML = `<p>${title}</p>`;
 
+            dragWindow (e)
+
             winID++;
 
         }
@@ -277,6 +287,7 @@
             let e = document.getElementById (`zOS_WIN_${id}`);
             e.remove();
             winID--;
+
         }
 
         // UI Callbacks
@@ -292,10 +303,58 @@
 
         // Login!
         function login () {
+
             loginScreen.style.display = "none";
             mainloop ();
             bootAudio.play();
+
         }
+
+    function dragWindow(el) {
+
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+        if (document.getElementById(`${el.id}_TITLEBAR`)) {
+
+            document.getElementById(`${el.id}_TITLEBAR`).onmousedown = dragMouseDown;
+
+        } else {
+
+            el.onmousedown = dragMouseDown;
+
+        }
+
+        function dragMouseDown(e) {
+
+            e = e || window.event;
+            e.preventDefault ();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+
+        }
+
+        function elementDrag(e) {
+
+            e = e || window.event;
+            e.preventDefault ();
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            el.style.top = (el.offsetTop - pos2) + "px";
+            el.style.left = (el.offsetLeft - pos1) + "px";
+
+        }
+
+        function closeDragElement() {
+
+            document.onmouseup = null;
+            document.onmousemove = null;
+
+        }
+    }
 
     </script>
 
