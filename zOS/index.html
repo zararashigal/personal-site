@@ -427,11 +427,13 @@
             
             // Boot sound...
             bootAudio.play();
+            bootAudio.loop = true;
 
             // Song...
             setTimeout(() => {
 
                 song.play();
+                song.loop = true;
                 song.volume = 0.3;
 
             },1000)
