@@ -276,8 +276,6 @@
         let bootAudio = new Audio();
         bootAudio.src = bootSnd;
 
-        let clocksey = new Date();
-
         // UI Helpers
 
         // Open window...
@@ -361,8 +359,8 @@
 
             // Clocksey!
             setInterval(() => {
-                document.getElementById("navClock").innerHTML = `${clocksey.toLocaleTimeString()}`
-            }, 1000);
+                document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`
+            }, 10);
 
         }
 
