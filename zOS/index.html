@@ -524,6 +524,9 @@
 
             },1000)
 
+            // Volume system...
+            setTimeout(() => {song.volume = globalVolume;}, 10)
+
             // Clocksey!
             setInterval(() => {
                 document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`;
