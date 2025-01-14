@@ -149,6 +149,24 @@
             margin-left: 1%;
             font-size: 18px;
             cursor: pointer;
+            transition: 0.3s;
+
+        }
+
+        .navTopContent:hover {
+            color: #ABABAB;
+            background-color: #343434;
+        }
+
+        .navTopContent {
+
+            background: #00000000;
+            width: 2.5%;
+            height: 60%;
+            display: inline;
+            margin-left: 1%;
+            font-size: 18px;
+            cursor: pointer;
 
         }
 
@@ -250,6 +268,7 @@
     <div id="navTop">
         <div class="navTopContent">🌸</div>
         <div class="navTopContent">zOS Workbench</div>
+        <div class="navTopContent">Settings</div>
         <div style="float: right; text-align: right; padding-right: 32px;" class="navTopContent" id="navClock"></div>
     </div>
 
@@ -258,6 +277,7 @@
     <div id="nav">
         <div id="btn-1" style="background-image: url('notes.png');" onclick="btn1UiCallback ()" class="retrobtn"></div>
         <div id="btn-2" style="background-image: url('tea.png');" onclick="btn2UiCallback ()" class="retrobtn"></div>
+        <div id="btn-3" style="background-image: url('folder.png');" onclick="btn3UiCallback ()" class="retrobtn"></div>
     </div>
 
     <div class="crt"></div>
@@ -265,16 +285,19 @@
     <script type="text/javascript">
 
         // Vars and definitions
-        let loginScreen = document.getElementById("loginScreen")
+        let muted = false;
+        let initialVolume = 0.35;
+        let globalVolume = initialVolume;
+        let loginScreen = document.getElementById("loginScreen");
         let stackID = 1;
         let stackingMultiplier = 12;
         let workBench = document.getElementById ("workBench");
 
-        let songSnd = "m1.mp3"
+        let songSnd = "m1.mp3";
         let song = new Audio();
         song.src = songSnd;
 
-        let bootSnd = "boot.mp3"
+        let bootSnd = "boot.mp3";
         let bootAudio = new Audio();
         bootAudio.src = bootSnd;
 
@@ -332,6 +355,10 @@
 
         }
 
+        function changeWP (path) {
+            document.body.style.backgroundImage = `url('${path}')`;
+        }
+
         // UI Callbacks
         // Button 1
         function btn1UiCallback () {
@@ -350,6 +377,16 @@
             paths = paths + `<div class="formbtn" onclick="tea_slot2 ()">Voidberry</div>`;
             
             zOSPopupOpen ("Bubble Tea", paths, stackID+Math.random(9e9));
+
+        }
+
+        // Button 2
+        function btn3UiCallback () {
+
+            let paths = `<div class="formbtn" onclick="home_slot1 ()">Software</div>`;
+            paths = paths + `<div class="formbtn" onclick="home_slot2 ()">Control Panel</div>`;
+
+            zOSPopupOpen ("/home/root/etc/", paths, stackID+Math.random(9e9));
 
         }
 
@@ -389,6 +426,44 @@
 
         }
 
+        // Home Slot1
+        function home_slot1 () {
+
+            let paths = `<div class="formbtn" onclick="calculator ()">Calculator</div>`;
+            paths = paths + `<div class="formbtn" onclick="browser ()">Browser</div>`;
+
+            zOSPopupOpen ("/home/root/etc/apps/", paths, stackID+Math.random(9e9));
+
+        }
+ 
+        // Home Slot2
+        function home_slot2 () {
+
+            let paths = `<div class="formbtn" onclick="musicMute ()">Mute Music</div>`;
+            paths = paths + `<div class="formbtn" onclick="wallpapers ()">Wallpapers</div>`;
+
+            zOSPopupOpen ("Control Panel", paths, stackID+Math.random(9e9));
+
+        }
+
+        // Mute and play music.
+        function musicMute () {
+
+            globalVolume = muted ? 0 : initialVolume;
+            muted = muted ? false : true;
+
+        }
+
+        // Change Wallpapers
+        function wallpapers () {
+
+            let paths = `<div class="formbtn" onclick="changeWP ('wp1.png')">Wallpaper 1</div>`;
+            paths = paths + `<div class="formbtn" onclick="changeWP ('wp2.png')">Wallpaper 2</div>`;
+
+            zOSPopupOpen ("Control Panel", paths, stackID+Math.random(9e9));
+
+        }
+
         // Notes
         function notes_slot1 (t) {
             
@@ -421,6 +496,15 @@
 
         }
     
+        // Browser
+        function browser (t) {
+            
+            zOSPopupOpen (`Browser`, 
+            
+                `<iframe style="width: 99%; height: 90%;" src="https://web.archive.org/web/20001203113300/http://www.google.com/"></iframe>`, stackID+Math.random(9e9));
+
+        }
+
         // Login!
         function login () {
 
@@ -436,7 +520,7 @@
 
                 song.play();
                 song.loop = true;
-                song.volume = 0.3;
+                song.volume = globalVolume;
 
             },1000)
 
@@ -444,7 +528,7 @@
             setInterval(() => {
                 document.getElementById("navClock").innerHTML = `${new Date().toLocaleTimeString()}`;
                 if (document.getElementById("soundOverride") == null) {
-                    song.volume = 0.3;
+                    song.volume = globalVolume;
                 } else {
                     song.volume = 0;
                 }
