@@ -286,7 +286,7 @@
 
         // Vars and definitions
         let muted = false;
-        let initialVolume = 0.35;
+        let initialVolume = 0.2;
         let globalVolume = initialVolume;
         let loginScreen = document.getElementById("loginScreen");
         let stackID = 1;
@@ -297,9 +297,14 @@
         let song = new Audio();
         song.src = songSnd;
 
-        let bootSnd = "boot.mp3";
+        let bootSnd = "bootStart.mp3";
         let bootAudio = new Audio();
         bootAudio.src = bootSnd;
+
+        let fanSnd = "boot.mp3";
+        let fanAudio = new Audio();
+        fanAudio.src = fanSnd;
+
 
         // UI Helpers
 
@@ -431,6 +436,7 @@
 
             let paths = `<div class="formbtn" onclick="calculator ()">Calculator</div>`;
             paths = paths + `<div class="formbtn" onclick="browser ()">Browser</div>`;
+            paths = paths + `<div class="formbtn" onclick="dwasm ()">DooM</div>`;
 
             zOSPopupOpen ("/home/root/etc/apps/", paths, stackID+Math.random(9e9));
 
@@ -505,6 +511,15 @@
 
         }
 
+        // DWASM
+        function dwasm (t) {
+            
+            zOSPopupOpen (`DooM`, 
+            
+                `<iframe id="soundOverride" style="width: 99%; height: 90%;" src="https://dwasm.m-h.org.uk/"></iframe>`, stackID+Math.random(9e9));
+
+        }
+
         // Login!
         function login () {
 
@@ -513,7 +528,8 @@
             
             // Boot sound...
             bootAudio.play();
-            bootAudio.loop = true;
+            bootAudio.loop = false;
+            bootAudio.volume = 0.15
 
             // Song...
             setTimeout(() => {
@@ -523,6 +539,15 @@
                 song.volume = globalVolume;
 
             },1000)
+
+            // Rattle...
+            setTimeout(() => {
+
+                fanAudio.play();
+                fanAudio.loop = true;
+                fanAudio.volume = 0.15;
+
+            }, 9000)
 
             // Volume system...
             setTimeout(() => {song.volume = globalVolume;}, 10)
