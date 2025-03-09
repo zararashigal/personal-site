@@ -24,9 +24,9 @@
       var qco = document.querySelector("#qcOut")
       function parse() {
         c = 0;
+        qci = document.querySelector("#qcIn").value;
         res = qciParser.exec(qci);
         qco.value = "# PARSED QC #\n# ------------------ #\n\nBONES_PARSED=table(),BONES_ID=table()"
-        qci = document.querySelector("#qcIn").value;
         while (res != null) {
           try {
             c++;
