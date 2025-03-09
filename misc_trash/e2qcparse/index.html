@@ -14,7 +14,9 @@
   <body>
     <h1>This tool converts QC files to E2 tables!!</h1>
     <div id="container">
+      <h3>QC input</h3>
       <textarea placeholder="QCI in here" id="qcIn"></textarea>
+      <h3>E2 output</h3>
       <textarea placeholder="E2 output" id="qcOut"></textarea>
       <button id="prsBtn" onclick="parse();">Parse</button>
     </div>
@@ -24,7 +26,11 @@
       var qco = document.querySelector("#qcOut")
       function parse() {
         c = 0;
-        qco.value = "# PARSED QC #\n# ------------------ #\n\nBONES_PARSED=table(),BONES_ID=table()"
+        qco.value = `
+@name QC2E2 by Zarashigal and Naki
+@persist C SCALE_FACTOR BONES_PARSED:table BONES_ID:table HOLOS:table
+
+` + "# PARSED QC #\n# ------------------ #\n\nBONES_PARSED=table(),BONES_ID=table()"
         qci = document.querySelector("#qcIn").value;
         res = qciParser.exec(qci);
         while (res != null) {
@@ -41,7 +47,24 @@ BONES_PARSED["${res[2]}",table]["id",number]=${c+1}
           res = qciParser.exec(qci);
           } catch(_){}
         }
-        qco.value = qco.value + `\n\n# -------------------------- #\n# Parsed ${c} Bones. #\n# END PARSED QC  #`
+        qco.value = qco.value + `\n\n# -------------------------- #\n# Parsed ${c} Bones. #\n# END PARSED QC  #\n` + `
+
+if (first()) {HOLOS=table(), C=0, SCALE_FACTOR=100, timer("build", 10)}
+if (clk("build")) {
+    C = C < BONES_PARSED:count() ? C + 1 : C
+    holoCreate(C), holoScale(C, vec(1))
+    local ParentID = BONES_PARSED[BONES_PARSED[BONES_ID[C,string],table]["parent",string],table]["id",number]
+    if (ParentID != 0) {
+        holoPos(C,holoEntity(ParentID):toWorld(BONES_PARSED[BONES_ID[C,string],table]["pos",vector]*SCALE_FACTOR))
+        holoAng(C,holoEntity(ParentID):toWorld(BONES_PARSED[BONES_ID[C,string],table]["ang",angle]))
+    } else {
+        holoPos(C,entity():toWorld(BONES_PARSED[BONES_ID[C,string],table]["pos",vector]*SCALE_FACTOR))
+        holoAng(C,entity():toWorld(BONES_PARSED[BONES_ID[C,string],table]["ang",angle]))
+    }
+    holoParent(C, entity())
+    print(C + "/" + BONES_PARSED:count() + ", Parent: " + ParentID)
+if (C < BONES_PARSED:count()) {timer("build", 75)}}
+`
       }
     </script>
     <h4>DISCLAIMER!!!<br />I have a job.<br/>This tool is provided as is.<br/>I am not held responsible if you get roasted on gmod servers;<br/>or if your house goes up in flames using this tool!!<br/>You choose your community, you know your community.</h4>
