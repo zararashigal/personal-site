@@ -19,30 +19,29 @@
       <button id="prsBtn" onclick="parse();">Parse</button>
     </div>
     <script type="text/javascript">
-      const qciParser = /\$(?<keyword>\w*)\s*\"(?<child>\w*)\"\s\"(?<parent>\w*)\"\s(?<x>[\d||\.||\-]*)\s(?<y>[\d||\.||\-]*)\s(?<z>[\d||\.||\-]*)\s(?<pitch>[\d||\.||\-]*)\s(?<yaw>[\d||\.||\-]*)\s(?<roll>[\d||\.||\-]*)/g
+      const qciParser = /\$(?<keyword>\w*)\s*\"(?<child>\w*)\"\s\"(?<parent>\w*)\"\s(?<x>[\d||\.||\-]*)\s(?<y>[\d||\.||\-]*)\s(?<z>[\d||\.||\-]*)\s(?<pitch>[\d||\.||\-]*)\s(?<yaw>[\d||\.||\-]*)\s(?<roll>[\d||\.||\-]*)/gm
       var qci = document.querySelector("#qcIn").value;
       var qco = document.querySelector("#qcOut")
       function parse() {
         c = 0;
+        qco.value = "# PARSED QC #\n# ------------------ #\n\nBONES_PARSED=table(),BONES_ID=table()"
         qci = document.querySelector("#qcIn").value;
         res = qciParser.exec(qci);
-        qco.value = "# PARSED QC #\n# ------------------ #\n\nBONES_PARSED=table(),BONES_ID=table()"
         while (res != null) {
           try {
-            c++;
-            console.log(res);
-            res = qciParser.exec(qci);
             qco.value = qco.value + 
 `
-BONES_ID[${c},string]="${res[2]}",BONES_PARSED["${res[2]}",table]=table()
+BONES_ID[${c+1},string]="${res[2]}",BONES_PARSED["${res[2]}",table]=table()
 BONES_PARSED["${res[2]}",table]["parent",string]="${res[3]}"
 BONES_PARSED["${res[2]}",table]["pos",vector]=vec(${res[4]}, ${res[5]}, ${res[6]})
 BONES_PARSED["${res[2]}",table]["ang",vector]=vec(${res[7]}, ${res[8]}, ${res[9]})
 BONES_PARSED["${res[2]}",table]["id",number]=${c}
 `
+          c++;
+          res = qciParser.exec(qci);
           } catch(_){}
         }
-        qco.value = qco.value + "\n\n# -------------------------- #\n# END PARSED QC #"
+        qco.value = qco.value + `\n\n# -------------------------- #\n# Parsed ${c} Bones. #\n# END PARSED QC  #`
       }
     </script>
     <h4>DISCLAIMER!!!<br />I have a job.<br/>This tool is provided as is.<br/>I am not held responsible if you get roasted on gmod servers;<br/>or if your house goes up in flames using this tool!!<br/>You choose your community, you know your community.</h4>
