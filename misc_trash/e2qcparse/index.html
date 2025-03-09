@@ -35,7 +35,7 @@ BONES_ID[${c+1},string]="${res[2]}",BONES_PARSED["${res[2]}",table]=table()
 BONES_PARSED["${res[2]}",table]["parent",string]="${res[3]}"
 BONES_PARSED["${res[2]}",table]["pos",vector]=vec(${res[4]}, ${res[5]}, ${res[6]})
 BONES_PARSED["${res[2]}",table]["ang",vector]=vec(${res[7]}, ${res[8]}, ${res[9]})
-BONES_PARSED["${res[2]}",table]["id",number]=${c}
+BONES_PARSED["${res[2]}",table]["id",number]=${c+1}
 `
           c++;
           res = qciParser.exec(qci);
