@@ -24,6 +24,7 @@
     </div>
     <script type="text/javascript">
         var anim = "";
+        var animN = "";
         var nodes = [];
         var times = [];
         var timesRaw = [];
@@ -35,7 +36,9 @@
         var namei = document.querySelector("#nameIn")
         var smdo = document.querySelector("#smdOut")
         function parse() {
-            anim = namei.value.charAt(0).toUpperCase() + namei.value.slice(1);
+            let animSplit = namei.value.split("/");
+            anim = animSplit[animSplit.length-1].charAt(0).toUpperCase() + animSplit[animSplit.length-1].slice(1);
+            animN = namei.value;
             nodes = [];
             times = [];
             timesRaw = [];
@@ -43,7 +46,7 @@
             c = 0;
             smdi = document.querySelector("#smdIn").value;
             smdo.value = `@name ${namei.value}
-@persist ${anim}_cycle:table
+@persist ${anim}:table
 
 #[
     SMD ANIMATION PARSER & CONVERTER BY 
@@ -98,18 +101,18 @@
                             smdo.value = smdo.value + 
 `
 # IK BONE FOUND... SKIPPING!!!
-#${anim}_cycle[${a}, table][${b+1}, table] = table()
-#${anim}_cycle[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
-#${anim}_cycle[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
-#${anim}_cycle[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
+#${anim}[${a}, table][${b+1}, table] = table()
+#${anim}[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
+#${anim}[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
+#${anim}[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
 `; 
                         } else {
                             smdo.value = smdo.value + 
 `
-${anim}_cycle[${a}, table][${b+1}, table] = table()
-${anim}_cycle[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
-${anim}_cycle[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
-${anim}_cycle[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
+${anim}[${a}, table][${b+1}, table] = table()
+${anim}[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
+${anim}[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
+${anim}[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
 `; 
                         }
                
@@ -117,6 +120,7 @@ ${anim}_cycle[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm
                 }
             }
             smdo.value = smdo.value + `\n\n# END PARSED SMD #\n# Parsed [${times.length - 1}] animation times for [${nodes.length - 1}] nodes. #\n`
+            smdo.select(); smdo.setSelectionRange(0,9e5); navigator.clipboard.writeText(smdo.value);
         }
     </script>
     <h4>DISCLAIMER!!!<br />I have a job.<br/>This tool is provided as is.<br/>I am not held responsible if you get roasted on gmod servers;<br/>or if your house goes up in flames using this tool!!<br/>You choose your community, you know your community.</h4>
