@@ -28,7 +28,7 @@
         var times = [];
         var timesRaw = [];
         var structure = {};
-        const pStructure = /nodes\n(?<nodes>(\d*\s*\"\w*\"\s*.\d*\n)*)end\n.*\n(?<time>time\s\d*(\n.*)*)end/gm;
+        const pStructure = /nodes\n(?<nodes>(\d*\s*\"[\w\s]*\"\s*.\d*\n)*)end\n.*\n(?<time>time\s\d*(\n.*)*)end/gm;
         const pNodes = /(?<id>\d*)\s*\"(?<bone>\w*)\"\s*(?<parent>\d*)/gm;
         const pTimes = /(?<id>\d*)\s{2}(?<pos>(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*)\s{2}(?<ang>(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*)/gm;
         var smdi = document.querySelector("#smdIn").value;
@@ -42,8 +42,13 @@
             structure = {};
             c = 0;
             smdi = document.querySelector("#smdIn").value;
-            smdo.value = `@name SMD2E2 by Zarashigal and Naki
+            smdo.value = `@name ${namei.value}
 @persist ${anim}_cycle:table
+
+#[
+    SMD ANIMATION PARSER & CONVERTER BY 
+    Zarashigal and Naki - 2025
+]#
 
 ` + "# PARSED SMD #\n# ------------------- #\n"
             res = pStructure.exec(smdi);
@@ -89,13 +94,25 @@
                 if (a != 0) {
                     smdo.value = smdo.value + `\n# time ${a}`
                     for (let [b, vb] of va.entries()) {
-                        smdo.value = smdo.value + 
+                        if (nodes[vb[1]][1].includes("ik_")){
+                            smdo.value = smdo.value + 
+`
+# IK BONE FOUND... SKIPPING!!!
+#${anim}_cycle[${a}, table][${b+1}, table] = table()
+#${anim}_cycle[${a}, table][${b+1}, table][2, string] = \"${nodes[vb[1]][1]}\"
+#${anim}_cycle[${a}, table][${b+1}, table][3, vector] = vec(${vb[2].replace(/\s/gm,", ")})
+#${anim}_cycle[${a}, table][${b+1}, table][4, angle] = ang(${vb[3].replace(/\s/gm,", ")})
+`; 
+                        } else {
+                            smdo.value = smdo.value + 
 `
 ${anim}_cycle[${a}, table][${b+1}, table] = table()
 ${anim}_cycle[${a}, table][${b+1}, table][2, string] = \"${nodes[vb[1]][1]}\"
 ${anim}_cycle[${a}, table][${b+1}, table][3, vector] = vec(${vb[2].replace(/\s/gm,", ")})
 ${anim}_cycle[${a}, table][${b+1}, table][4, angle] = ang(${vb[3].replace(/\s/gm,", ")})
-`;                
+`; 
+                        }
+               
                     }
                 }
             }
