@@ -95,7 +95,7 @@
 
             for (let [a, va] of times.entries()) {
                 if (a != 0) {
-                    smdo.value = smdo.value + `\n# time ${a}`
+                    smdo.value = smdo.value + `\n# time ${a}\n\n${anim}[${a}, table] = table()\n`
                     for (let [b, vb] of va.entries()) {
                         if (nodes[vb[1]][1].includes("ik_")){
                             smdo.value = smdo.value + 
