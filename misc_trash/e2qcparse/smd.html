@@ -99,17 +99,17 @@
 `
 # IK BONE FOUND... SKIPPING!!!
 #${anim}_cycle[${a}, table][${b+1}, table] = table()
-#${anim}_cycle[${a}, table][${b+1}, table][2, string] = \"${nodes[vb[1]][1]}\"
-#${anim}_cycle[${a}, table][${b+1}, table][3, vector] = vec(${vb[2].replace(/\s/gm,", ")})
-#${anim}_cycle[${a}, table][${b+1}, table][4, angle] = ang(${vb[3].replace(/\s/gm,", ")})
+#${anim}_cycle[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
+#${anim}_cycle[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
+#${anim}_cycle[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
 `; 
                         } else {
                             smdo.value = smdo.value + 
 `
 ${anim}_cycle[${a}, table][${b+1}, table] = table()
-${anim}_cycle[${a}, table][${b+1}, table][2, string] = \"${nodes[vb[1]][1]}\"
-${anim}_cycle[${a}, table][${b+1}, table][3, vector] = vec(${vb[2].replace(/\s/gm,", ")})
-${anim}_cycle[${a}, table][${b+1}, table][4, angle] = ang(${vb[3].replace(/\s/gm,", ")})
+${anim}_cycle[${a}, table][${b+1}, table][1, string] = \"${nodes[vb[1]][1]}\"
+${anim}_cycle[${a}, table][${b+1}, table][2, vector] = vec(${vb[2].replace(/\s/gm,", ")})
+${anim}_cycle[${a}, table][${b+1}, table][3, angle] = ang(${vb[3].replace(/\s/gm,", ")})
 `; 
                         }
                
