@@ -41,7 +41,7 @@
         var structure = {};
  
         /* Regex patterns */
-        const pStructure = /nodes\n(?<nodes>(\d*\s*\"[\w\s]*\"\s*.\d*\n)*)end\n.*\n(?<time>time\s\d*(\n.*)*)end/gm;
+        const pStructure = /nodes\n(?<nodes>(\d*\s*\"[\w\s\.]*\"\s*.\d*\n)*)end\n.*\n(?<time>time\s\d*(\n.*)*)end/gm;
         const pNodes = /(?<id>\d*)\s*\"(?<bone>\w*)\"\s*(?<parent>\d*)/gm;
         const pTimes = /(?<id>\d*)\s{2}(?<pos>(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*)\s{2}(?<ang>(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*\s(?:\d|\-\d)\.\d*)/gm;
  
