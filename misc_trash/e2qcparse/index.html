@@ -21,7 +21,7 @@
       <button id="prsBtn" onclick="parse();">Parse</button>
     </div>
     <script type="text/javascript">
-      const qciParser = /$(?<keyword>\w*)\s*\"(?<child>[\w\.\s]*)\"\s\"(?<parent>[\w\.\s]*)\"\s(?<x>[\d||\.||\-]*)\s(?<y>[\d||\.||\-]*)\s(?<z>[\d||\.||\-]*)\s(?<pitch>[\d||\.||\-]*)\s(?<yaw>[\d||\.||\-]*)\s(?<roll>[\d||\.||\-]*)/gm
+      const qciParser = /\$(?<keyword>\w*)\s*\"(?<child>[\w\.\s]*)\"\s\"(?<parent>[\w\.\s]*)\"\s(?<x>[\d||\.||\-]*)\s(?<y>[\d||\.||\-]*)\s(?<z>[\d||\.||\-]*)\s(?<pitch>[\d||\.||\-]*)\s(?<yaw>[\d||\.||\-]*)\s(?<roll>[\d||\.||\-]*)/gm
       var qci = document.querySelector("#qcIn").value;
       var qco = document.querySelector("#qcOut")
       function parse() {
