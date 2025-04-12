@@ -1,0 +1,7 @@
+Alpha inv links from /alpha are comprised of:
+
+https://www.bungie.net/7/en/Marathon/Alpha?discordId=<YOURDISCORDUSERIDHERE>&discordName=<USERNAMEHERE>
+
+
+So if the discord has an outage again, you can still manually do some tinkering to get it to work.
+I've had mixed results though and some usernames don't work, if they end with a dash, special symbols, etc, or start with them.
