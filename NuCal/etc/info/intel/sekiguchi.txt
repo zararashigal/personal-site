@@ -1,0 +1,51 @@
+[url] - [code-200] - https://sekiguchigenetics.jp/
+[href] - https://sekiguchigenetics.jp/_next/static/css/0cf2fd6de7e94249.css
+[href] - https://plausible.io/js/script.js
+[href] - https://sekiguchigenetics.jp/favicon-32x32.png
+[href] - https://sekiguchigenetics.jp/favicon-16x16.png
+[href] - https://sekiguchigenetics.jp/apple-touch-icon.png
+[href] - https://sekiguchigenetics.jp/manifest.json
+[href] - https://sekiguchigenetics.jp/safari-pinned-tab.svg
+[javascript] - https://sekiguchigenetics.jp/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+[javascript] - https://sekiguchigenetics.jp/_next/static/chunks/webpack-618cb8bffec7f24c.js
+[javascript] - https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js
+[javascript] - https://sekiguchigenetics.jp/_next/static/chunks/139-641adbd7a073333e.js
+[javascript] - https://sekiguchigenetics.jp/_next/static/chunks/main-app-c0fde4ac3a0b3bab.js
+[url] - [code-200] - https://sekiguchigenetics.jp/manifest.json
+[url] - [code-200] - https://sekiguchigenetics.jp/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+[url] - [code-200] - https://sekiguchigenetics.jp/_next/static/chunks/139-641adbd7a073333e.js
+[url] - [code-200] - https://sekiguchigenetics.jp/_next/static/chunks/main-app-c0fde4ac3a0b3bab.js
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /a/i
+[linkfinder] - https://sekiguchigenetics.jp/a/i
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /a/b
+[linkfinder] - https://sekiguchigenetics.jp/a/b
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /./
+[linkfinder] - https://sekiguchigenetics.jp/
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/139-641adbd7a073333e.js] - text/x-component
+[linkfinder] - https://sekiguchigenetics.jp/_next/static/chunks/text/x-component
+[linkfinder] - https://sekiguchigenetics.jp/text/x-component
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/139-641adbd7a073333e.js] - multipart/form-data
+[linkfinder] - https://sekiguchigenetics.jp/_next/static/chunks/multipart/form-data
+[linkfinder] - https://sekiguchigenetics.jp/multipart/form-data
+[url] - [code-200] - https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js
+[url] - [code-200] - https://sekiguchigenetics.jp/_next/static/chunks/webpack-618cb8bffec7f24c.js
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/webpack-618cb8bffec7f24c.js] - static/css/
+[linkfinder] - https://sekiguchigenetics.jp/_next/static/chunks/static/css/
+[linkfinder] - https://sekiguchigenetics.jp/static/css/
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/webpack-618cb8bffec7f24c.js] - /_next/
+[linkfinder] - https://sekiguchigenetics.jp/_next/
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/webpack-618cb8bffec7f24c.js] - https://vercel.live/_next-live/feedback/feedback.js
+[linkfinder] - https://vercel.live/_next-live/feedback/feedback.js
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js] - https://reactjs.org/docs/error-decoder.html?invariant=
+[linkfinder] - https://reactjs.org/docs/error-decoder.html?invariant=
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js] - http://www.w3.org/2000/svg
+[linkfinder] - http://www.w3.org/2000/svg
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js] - http://www.w3.org/1999/xlink
+[linkfinder] - http://www.w3.org/1999/xlink
+[linkfinder] - [from: https://sekiguchigenetics.jp/_next/static/chunks/2443530c-e13bd25aa5592547.js] - http://www.w3.org/XML/1998/namespace
+[linkfinder] - http://www.w3.org/XML/1998/namespace
+[linkfinder] - http://www.w3.org/XML/1998/namespace
+[url] - [code-200] - https://vercel.live/_next-live/feedback/feedback.js

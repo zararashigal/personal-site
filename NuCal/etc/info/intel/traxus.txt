@@ -1,0 +1,57 @@
+[url] - [code-200] - http://traxus.global/
+[href] - http://traxus.global/_next/static/css/21574622e555cb84.css
+[href] - https://plausible.io/js/script.js
+[href] - http://traxus.global/apple-touch-icon.png
+[href] - http://traxus.global/favicon-32x32.png
+[href] - http://traxus.global/favicon-16x16.png
+[href] - http://traxus.global/site.webmanifest
+[href] - http://traxus.global/safari-pinned-tab.svg
+[javascript] - http://traxus.global/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+[javascript] - http://traxus.global/_next/static/chunks/webpack-cc70d4976596de60.js
+[javascript] - http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js
+[javascript] - http://traxus.global/_next/static/chunks/139-f2b9d6c6f6f9bfed.js
+[javascript] - http://traxus.global/_next/static/chunks/main-app-33d54d9a8c356c84.js
+[robots] - https://traxus.global/
+[url] - [code-200] - http://traxus.global/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+[url] - [code-200] - http://traxus.global/_next/static/chunks/main-app-33d54d9a8c356c84.js
+[url] - [code-200] - http://traxus.global/site.webmanifest
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /a/i
+[linkfinder] - http://traxus.global/a/i
+[linkfinder] - https://traxus.global/a/i
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /a/b
+[linkfinder] - http://traxus.global/a/b
+[linkfinder] - https://traxus.global/a/b
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js] - /./
+[linkfinder] - http://traxus.global/
+[linkfinder] - https://traxus.global/
+[url] - [code-200] - http://traxus.global/_next/static/chunks/webpack-cc70d4976596de60.js
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/webpack-cc70d4976596de60.js] - static/chunks/
+[linkfinder] - http://traxus.global/_next/static/chunks/static/chunks/
+[linkfinder] - https://traxus.global/static/chunks/
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/webpack-cc70d4976596de60.js] - static/css/
+[linkfinder] - http://traxus.global/_next/static/chunks/static/css/
+[linkfinder] - https://traxus.global/static/css/
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/webpack-cc70d4976596de60.js] - /_next/
+[linkfinder] - http://traxus.global/_next/
+[linkfinder] - https://traxus.global/_next/
+[url] - [code-200] - http://traxus.global/_next/static/chunks/139-f2b9d6c6f6f9bfed.js
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/139-f2b9d6c6f6f9bfed.js] - text/x-component
+[linkfinder] - http://traxus.global/_next/static/chunks/text/x-component
+[linkfinder] - https://traxus.global/text/x-component
+[url] - [code-200] - http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - https://reactjs.org/docs/error-decoder.html?invariant=
+[linkfinder] - https://reactjs.org/docs/error-decoder.html?invariant=
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - http://www.w3.org/1999/xhtml
+[linkfinder] - http://www.w3.org/1999/xhtml
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - http://www.w3.org/2000/svg
+[linkfinder] - http://www.w3.org/2000/svg
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - http://www.w3.org/1998/Math/MathML
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - http://www.w3.org/1999/xlink
+[linkfinder] - http://www.w3.org/1999/xlink
+[linkfinder] - [from: http://traxus.global/_next/static/chunks/2443530c-8ff74f8e09f58bb6.js] - http://www.w3.org/XML/1998/namespace
+[linkfinder] - http://www.w3.org/XML/1998/namespace
+[linkfinder] - http://www.w3.org/XML/1998/namespace
+[url] - [code-200] - http://traxus.global/
+[url] - [code-200] - http://traxus.global/
