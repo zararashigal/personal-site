@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NuCaloric Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="thatsDarkBro">
+
+    <div class="terminal-wrapper">
+
+        <header class="terminal-header">
+            NuCaloric Terminal
+        </header>
+        <main class="terminal-body" id="terminal-body">
+            <div class="logo-3d-wrapper">
+                <img src="logo.svg" alt="NuCaloric 3D Logo" class="logo-3d" />
+            </div>
+            <div class="line">> Welcome to the NuCaloric. Guest Access temporarily granted.</div>
+            <div class="line">> Infrastructure is in progress.</div>
+            <div class="line">> Type <span class="highlight">help</span> to begin.</div>
+        </main>
+
+        <form id="terminal-form">
+            <span class="prompt">></span>
+            <input type="text" id="terminal-input" placeholder="Enter command..." autocomplete="off" autofocus />
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('terminal-form');
+        	const input = document.getElementById('terminal-input');
+        	const body = document.getElementById('terminal-body');
+          
+        	const files = {
+        		'worms.txt':
+        
+        		`NUCALORIC REPORT 334:189:491:103
+        		- Division: Agricultural Intel
+        		- Nutritional Tier: ON BURGER
+        		- Synth Code: #NC-178
+        		- REPORT:
+        		WORMS DROOL, NU ROOLS, ON BURGER, ON BURGER!!
+        		`,
+        		
+        		'alpha.txt':
+        
+        		`Alpha inv links from /alpha are comprised of:
+        
+        https://www.bungie.net/7/en/Marathon/Alpha?discordId=<YOURDISCORDUSERIDHERE>&discordName=<USERNAMEHERE>
+        You can alternatively run 
+        alpha <your discord id> <your discord name, NOT your display name> 
+        	to generate one in the NuCal terminal.`,
+        	};
+          
+        	function printToTerminal(text) {
+        	  const line = document.createElement('div');
+        	  line.className = 'line';
+        	  line.innerHTML = text;
+        	  body.appendChild(line);
+        	  body.scrollTop = body.scrollHeight;
+        	}
+          
+        	function handleCommand(command) {
+        	  const args = command.split(' ');
+        	  const cmd = args[0];
+          
+        	  switch (cmd) {
+        		case 'help':
+        		  printToTerminal(`> Available commands: <span class="highlight">ls</span>, <span class="highlight">cat [file]</span>, <span class="highlight">alpha [ID:Name]</span>, <span class="highlight">clear</span>, <span class="highlight">help</span>`);
+        		  printToTerminal(`* <span class="highlight">alpha [ID:Name]</span> can calculate an alpha link for you. For more information:`);
+        		  printToTerminal(`* <span class="highlight">cat alpha.txt</span>`)
+         
+        		  break;
+          
+        		case 'ls':
+        		  printToTerminal('> ' + Object.keys(files).join('  '));
+        		  break;
+          
+        		case 'cat':
+        		  const filename = args[1];
+        		  if (filename && files[filename]) {
+        			printToTerminal(`> Contents of ${filename}:`);
+        			printToTerminal(`<br />`);
+        			files[filename].split('\n').forEach(line => printToTerminal(`${line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}`));
+        		  } else {
+        			printToTerminal(`> File not found: ${filename || ''}`);
+        		  }
+        		  break;
+        
+        		  case 'alpha':
+        		  const discord = args[1];
+        		  const username = args[2];
+        		  if (discord && username) {
+        			printToTerminal(`> Generating Alpha link (May or May not work)`);
+        			printToTerminal(`<br />`);
+        			printToTerminal(`https://www.bungie.net/7/en/Marathon/Alpha?discordId=${discord}&discordName=${username}`);
+        		  } else {
+        			printToTerminal(`> Syntax Error! cat alpha.txt for help!`);
+        		  }
+        		  break;
+        
+        		case 'clear':
+        		  body.innerHTML = '';
+        		  break;
+          
+        		default:
+        		  printToTerminal(`> Command not recognized: <span class="highlight">${cmd}</span>`);
+        		  break;
+        	  }
+        	}
+          
+        	form.addEventListener('submit', (e) => {
+        	  e.preventDefault();
+        	  const command = input.value.trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        	  if (!command) return;
+          
+        	  printToTerminal(`> ${command}`);
+        	  handleCommand(command);
+        	  input.value = '';
+        	});
+    </script>
+</body>
+
+</html>
