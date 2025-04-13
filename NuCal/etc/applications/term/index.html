@@ -34,7 +34,7 @@
         const form = document.getElementById('terminal-form');
         	const input = document.getElementById('terminal-input');
         	const body = document.getElementById('terminal-body');
-          
+			const memes = ["178.gif", "AFQWEARTWE.gif", "andthatsonburgerphone.gif", "baguette.gif", "cat1.gif", "catsey1.gif", "catsey2.png", "DACCAT.gif", "felini_loves_burger.gif", "onwhat.gif", "forgor.gif", "onburger.gif", "onburger2.gif", "onburger3.gif", "onburger4.gif", "onburger5.gif", "nuworm.gif", "ONBURGERSHOCKED.gif"]
         	const files = {
         		'worms.txt':
         
@@ -70,7 +70,7 @@
           
         	  switch (cmd) {
         		case 'help':
-        		  printToTerminal(`> Available commands: <span class="highlight">ls</span>, <span class="highlight">cat [file]</span>, <span class="highlight">alpha [ID:Name]</span>, <span class="highlight">clear</span>, <span class="highlight">help</span>`);
+        		  printToTerminal(`> Available commands: <span class="highlight">on</span>, <span class="highlight">ls</span>, <span class="highlight">cat [file]</span>, <span class="highlight">alpha [ID:Name]</span>, <span class="highlight">clear</span>, <span class="highlight">help</span>`);
         		  printToTerminal(`* <span class="highlight">alpha [ID:Name]</span> can calculate an alpha link for you. For more information:`);
         		  printToTerminal(`* <span class="highlight">cat alpha.txt</span>`)
          
@@ -106,7 +106,22 @@
         		case 'clear':
         		  body.innerHTML = '';
         		  break;
-          
+
+				case 'on':
+				const what = args[1];
+
+				if (what && what.toLowerCase() == "burger") {
+					printToTerminal(`ON BURGER`);
+					let randomMeme = memes[Math.floor(Math.random() * memes.length)];
+					printToTerminal(`<img style="width: 25em" src="https://zarashigal.eu.org/NuCal/etc/misc/${randomMeme}"></img>`);
+				} else {
+					printToTerminal(`<img onload="body.scrollTop = body.scrollHeight;" src="./onwhat.gif"></img>`);
+				}
+				setTimeout(() => {body.scrollTop = body.scrollHeight}, 300)
+				
+
+				break;
+				  
         		default:
         		  printToTerminal(`> Command not recognized: <span class="highlight">${cmd}</span>`);
         		  break;
