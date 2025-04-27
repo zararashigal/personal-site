@@ -327,7 +327,6 @@
     <div id="mainCover"></div>
     <div class="cyAc"></div>
     <div id="startBtn" onclick="init()"><h1 class="font1">CYAC://LOGIN</h1></div>
-    <audio id="bgm" src="./mb_comic.xm.ogg"></audio>
     <h1 class="font1 fade1" id="ACCESS">CYAC://ACCESS = TRUE;</h1>
     <div class="crt"></div>
     
@@ -345,7 +344,9 @@
       }
 
       function init() {
-        var song  = document.getElementById("bgm")
+        let snd = "./mb_comic.xm.ogg"
+        let song = new Audio();
+        song.src = snd;
         song.load()
         song.play()
         var ctX   = new AudioContext()
