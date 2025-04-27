@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+      @keyframes blink-animation {
+        0% {
+          background: #003300FF;
+        }
+        50% {
+          background: #00330000;
+        }
+      }
+
+      @keyframes fade0 {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+ 
+      @keyframes stripeXL {
+        0% {
+          left: 100%;
+        }
+        100% {
+          left: -150%;
+        }
+      }
+
+ 
+      @keyframes stripeXR {
+        0% {
+          left: -100%;
+        }
+        100% {
+          left: 150%;
+        }
+      }
+
+      @keyframes slowstripeXL {
+        0% {
+          left: 200%;
+        }
+        100% {
+          left: -200%;
+        }
+      }
+
+ 
+      @keyframes slowstripeXR {
+        0% {
+          left: -200%;
+        }
+        100% {
+          left: 170%;
+        }
+      }
+
+      @keyframes faderText {
+        0% {
+          opacity: 0;
+          scale: 0%;
+        }
+        35% {
+          opacity: 1;
+          scale: 200%;
+        }
+        85% {
+          opacity: 1;
+          scale: 200%;
+        }
+        100% {
+          opacity: 0;
+          scale: 0%;
+        }
+      }
+      @keyframes rotatingArrows {
+        0% {
+          transform: rotate(0deg);
+          color: #990000;
+          left: -100%;
+        }
+        50% {
+          color: #FF0000;
+        }
+        100% {
+          transform: rotate(360deg);
+          color: #990000;
+          left: 200%;
+        }
+      }
+      @keyframes rotatingArrowsScanline {
+        0% {
+          transform: rotate(90deg);
+          color: #008F00;
+          left: -100%;
+        }
+        50% {
+          color: #00AF00;
+        }
+        100% {
+          transform: rotate(90deg);
+          color: #008F00;
+          left: 200%;
+        }
+      }
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+          transform: rotate(0deg);
+          scale: 500%;
+        }
+        50% {
+          background-position: 100% 50%;
+          scale: 600%;
+        }
+        100% {
+          background-position: 0% 50%;
+          transform: rotate(360deg);
+          scale: 500%;
+        }
+      }
+
+      * {
+        user-select: none;
+      }
+
+      .cyAc {
+        position: fixed;
+        top: 87%;
+        left: 10px;
+        width: 8vh;
+        height: 8vh;
+        background: url("./cyAc.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: drop-shadow(0 0 0.35rem #00FF00);
+        z-index: 99999999999999999;
+      }
+
+      .fade0 { 
+        animation: fade0 2s !important; 
+        animation-fill-mode: forwards !important;
+      }
+
+      .faderText { 
+        animation: faderText 3s !important; 
+        animation-fill-mode: forwards !important;
+      }
+
+      .fade1 { 
+        animation: fade1 1s !important; 
+      }
+
+      .stripeXR { 
+        width: 200%;
+        white-space: nowrap;
+        animation: stripeXR 13s infinite !important; 
+      }
+
+      .stripeXL { 
+        width: 200%;
+        white-space: nowrap;
+        animation: stripeXL 13s infinite !important; 
+      }
+
+      .slowstripeXL { 
+        width: 200%;
+        white-space: nowrap;
+        animation: slowstripeXL 61s infinite !important; 
+      }
+
+      .slowstripeXR { 
+        width: 200%;
+        white-space: nowrap;
+        animation: slowstripeXR 61s infinite !important; 
+      }
+
+      .stripeY { 
+        animation: stripeY 1s !important; 
+      }
+
+      .fx {
+        position: fixed;
+      }
+
+      #mainCover {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        top: 0;
+        left: 0;
+        z-index: 9999999999999999;
+        
+      }
+
+      #startBtn {
+        align-content: center;
+        text-align: center;
+        vertical-align: middle;
+        padding-bottom: 1.5vh;
+        position: fixed;
+        width: 300px;
+        height: 50px;
+        z-index: 99999;
+        background: #003300;
+        border: 0.1em solid #00FF00;
+        animation: blink-animation 0.5s steps(16, start) infinite;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        vertical-align: middle;
+        cursor: pointer;
+        z-index: 9999999999999999;
+      }
+
+      .rotatingArrows {
+        text-shadow: 0px 0px 5px #FF0000 !important;
+        animation: rotatingArrows 10s infinite !important; 
+      }
+
+      .rotatingArrowsScanline {
+        text-shadow: 0px 0px 8px #00FF0085 !important;
+        color: #002F00 !important;
+        animation: rotatingArrowsScanline 10s infinite !important; 
+      }
+
+      .font1 {
+        
+        font-size: 24px;
+        vertical-align: middle;
+        text-align: center;
+        color: #00FF00;
+        text-shadow: 0px 0px 8px #00FF00;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        z-index: 999999999999999;
+      }
+
+      .font2 {
+        font-size: 24px;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 20px;
+        color: #FF0000;
+        text-shadow: 0px 0px 8px #FF0000 !important;
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        z-index: 999999999999999;
+      }
+
+      #ACCESS {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 9;
+        transform: translateX(-50%);
+        opacity: 0;
+      }
+
+      audio {
+        display: none;
+      }
+
+      #bg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 0;
+        transform-origin: center;
+        background: linear-gradient(144deg,#003300,#000000);
+        background-size: 120% 120%;
+        animation: gradient-animation 20s ease infinite;
+        z-index: -1;
+      }
+
+      body {
+        margin: 0; 
+        padding: 0;
+      }
+      
+      * {
+        overflow: hidden;
+      }
+
+      .crt::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 999999999999999999;
+        width: 100%;
+        pointer-events: none;
+        animation: flickerflickerly 0.002s infinite;
+        pointer-events: none;
+      }
+
+      @keyframes flickerflickerly {
+        from {background-size: 100% 5px, 11px 100%; opacity: 0.93;}
+        to {background-size: 100% 4px, 12px 100%; opacity: 1;}
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="mainCover"></div>
+    <div class="cyAc"></div>
+    <div id="startBtn" onclick="init()"><h1 class="font1">CYAC://LOGIN</h1></div>
+    <audio id="bgm" src="./mb_comic.xm.ogg"></audio>
+    <h1 class="font1 fade1" id="ACCESS">CYAC://ACCESS = TRUE;</h1>
+    <div class="crt"></div>
+    
+    <script type="text/javascript">
+
+      function fx(c, t, x, y) {
+        let e = document.createElement("h1");
+        c.forEach((fxClass) => {e.classList.add(fxClass)})
+        e.innerHTML = t;
+        e.style.position = "fixed";
+        e.style.top = y;
+        e.style.zIndex = "1";
+        e.style.left = x;
+        document.body.appendChild(e);
+      }
+
+      function init() {
+        var song  = document.getElementById("bgm")
+        song.load()
+        song.play()
+        var ctX   = new AudioContext()
+        var srcX  = ctX.createMediaElementSource(song)
+        var anX   = ctX.createAnalyser()
+        anX.fftSize = 256
+        var bufLen  = anX.frequencyBinCount
+        var bufUINT = new Uint8Array(bufLen);
+        srcX.connect(anX)
+        anX.connect(ctX.destination)
+        var isPlaying = true
+        
+        /* Demo script! :3*/
+        document.querySelector("#startBtn").onclick = "";
+        document.querySelector("#startBtn").style.zIndex = "-999999999"
+
+        setTimeout(() => {
+          document.querySelector("#startBtn").classList.add("fade0");
+        }, 500)
+
+        setTimeout(() => {
+          document.querySelector("#mainCover").classList.add("fade0");
+        }, 3000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "CYAC://ACCESS = TRUE;", "40%", "50%");
+        }, 3000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "LOADING;", "40%", "30%");
+        }, 7000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "THE;", "45%", "50%");
+        }, 9000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "TERMINAL BEAUTY;", "50%", "70%");
+        }, 11000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "How about some arrows of time? UwU", "35%", "50%");
+        }, 14000)
+      
+        setTimeout(() => {
+          for (let index = 0; index < 11; index++) {
+            setTimeout(() => {
+              fx(["stripeXL", "font1", "arrow"], "<---", "45%", index*4+10+"%");
+            }, 10*index*100)
+          }
+        }, 18000)
+      
+        setTimeout(() => {
+          fx(["faderText", "font1"], "Here's some more from the other side. >:3", "35%", "50%");
+        }, 28000)
+      
+        setTimeout(() => {
+          for (let index = 0; index < 11; index++) {
+            setTimeout(() => {
+              fx(["stripeXR", "font1", "arrow"], "--->", "45%", index*2+10+"%");
+            }, 10*index*30)
+          }
+        }, 30000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "ENCODING PARADIGM SHIFT", "40%", "40%");
+        }, 38000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "SUBROUTINE::AQUARIUS IMPLEMENTED", "35%", "70%");
+        }, 40000)
+
+        setTimeout(() => {
+          for (let index = 0; index < 10; index++) {
+            setTimeout(() => {
+              fx(["faderText", "font2"], "[OVERRIDE]", "25%", index*10+1+"%");
+            }, 10*index*15)
+          }
+
+          for (let index = 0; index < 10; index++) {
+            setTimeout(() => {
+              fx(["faderText", "font2"], "[OVERRIDE]", "65%", index*10+1+"%");
+            }, 10*index*15)
+          }
+        }, 40000)
+
+        setTimeout(() => {
+          var faders = document.querySelectorAll(".faderText");
+          for (let i = 0; i < faders.length; i++) {
+            faders[i].remove();
+          }
+        }, 42500)
+
+        setTimeout(() => {
+          for (let index = 0; index < 44; index++) {
+            setTimeout(() => {
+              fx(["stripeXR", "font1", "arrow"], "--->", "45%", index*3+1+"%");
+            }, 10*index*15)
+          }
+        }, 43000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "War is useless, right?", "42%", "50%");
+        }, 47000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "ABOLISH THE ARROWS! TURN THEM ROUND AND ROUND! :3", "30%", "50%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.add("rotatingArrows");
+          }
+        }, 51000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "Since we just ended war...", "42%", "40%");
+        }, 60000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "These arrows would make a pretty scanline.", "35%", "60%");
+        }, 64000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "Let's turn them into a pretty scanline...", "35%", "40%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.remove("rotatingArrows");
+            arrows[i].classList.add("rotatingArrowsScanline");
+          }
+        }, 66000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "There we go!! <3", "45%", "60%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.remove("rotatingArrows");
+            arrows[i].classList.add("rotatingArrowsScanline");
+          }
+        }, 70000)
+
+        setTimeout(() => {
+          fx(["slowstripeXL", "font1"], "This is just a small demo i made. I hope you're enjoying this little scrolltext just as much as the arrow's patterns. I will gradually add content to this demo as time progresses. Thanks for sticking around for now~ <3", "45%", "85%");
+        }, 73000)
+
+        setTimeout(() => {
+          fx(["slowstripeXR", "font1"], "Code - Zarashigal; Song - Comic Bakery (mb_bakery.xm); EVERYTHING RUNS ON CyAc, OR NOTHING RUNS AT ALL.", "45%", "5%");
+        }, 76000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "Everything runs on CyAc.", "42%", "40%");
+        }, 82000)
+
+        setTimeout(() => {
+          fx(["faderText", "font1"], "Or nothing runs at all!", "42%", "60%");
+        }, 85000)
+
+        setTimeout(() => {
+          fx(["cyAc", "faderText"], "", "45%", "50%");
+        }, 89000)
+
+        setInterval(() => {
+
+        if(isPlaying){anX.getByteFrequencyData(bufUINT)}
+        let curtime = new Date().getTime()
+        if(isPlaying) { 
+          document.querySelectorAll(".cyAc")[0].style.width = 8+(bufUINT[16] / 82)+"vh";
+          document.querySelectorAll(".cyAc")[0].style.height = 8+(bufUINT[16] / 82)+"vh";
+
+          var elems = document.querySelectorAll(".arrow");
+          
+          try {
+            for (let i = 0; i < elems.length; i++) {
+              elems[i].style.fontSize = `${16+(bufUINT[32] / 16)}px`
+            }
+          } catch (_) {}
+          
+        }
+        }, 2)
+      }
+
+
+    </script>
+  </body>
+</html>
