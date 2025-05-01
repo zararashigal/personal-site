@@ -81,6 +81,22 @@
           scale: 0%;
         }
       }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          scale: 0%;
+        }
+        35% {
+          opacity: 1;
+          scale: 200%;
+        }
+        100% {
+          opacity: 1;
+          scale: 200%;
+        }
+      }
+
       @keyframes rotatingArrows {
         0% {
           transform: rotate(0deg);
@@ -152,6 +168,11 @@
 
       .faderText { 
         animation: faderText 3s !important; 
+        animation-fill-mode: forwards !important;
+      }
+
+      .fadeIn { 
+        animation: fadeIn 3s !important; 
         animation-fill-mode: forwards !important;
       }
 
@@ -346,6 +367,7 @@
       function init() {
         let snd = "./mb_comic.xm.ogg"
         let song = new Audio();
+        song.loop = true; 
         song.src = snd;
         song.load()
         song.play()
@@ -363,148 +385,7 @@
         document.querySelector("#startBtn").onclick = "";
         document.querySelector("#startBtn").style.zIndex = "-999999999"
 
-        setTimeout(() => {
-          document.querySelector("#startBtn").classList.add("fade0");
-        }, 500)
-
-        setTimeout(() => {
-          document.querySelector("#mainCover").classList.add("fade0");
-        }, 3000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "CYAC://ACCESS = TRUE;", "40%", "50%");
-        }, 3000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "LOADING;", "40%", "30%");
-        }, 7000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "THE;", "45%", "50%");
-        }, 9000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "TERMINAL BEAUTY;", "50%", "70%");
-        }, 11000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "How about some arrows of time? UwU", "35%", "50%");
-        }, 14000)
-      
-        setTimeout(() => {
-          for (let index = 0; index < 11; index++) {
-            setTimeout(() => {
-              fx(["stripeXL", "font1", "arrow"], "<---", "45%", index*4+10+"%");
-            }, 10*index*100)
-          }
-        }, 18000)
-      
-        setTimeout(() => {
-          fx(["faderText", "font1"], "Here's some more from the other side. >:3", "35%", "50%");
-        }, 28000)
-      
-        setTimeout(() => {
-          for (let index = 0; index < 11; index++) {
-            setTimeout(() => {
-              fx(["stripeXR", "font1", "arrow"], "--->", "45%", index*2+10+"%");
-            }, 10*index*30)
-          }
-        }, 30000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "ENCODING PARADIGM SHIFT", "40%", "40%");
-        }, 38000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "SUBROUTINE::AQUARIUS IMPLEMENTED", "35%", "70%");
-        }, 40000)
-
-        setTimeout(() => {
-          for (let index = 0; index < 10; index++) {
-            setTimeout(() => {
-              fx(["faderText", "font2"], "[OVERRIDE]", "25%", index*10+1+"%");
-            }, 10*index*15)
-          }
-
-          for (let index = 0; index < 10; index++) {
-            setTimeout(() => {
-              fx(["faderText", "font2"], "[OVERRIDE]", "65%", index*10+1+"%");
-            }, 10*index*15)
-          }
-        }, 40000)
-
-        setTimeout(() => {
-          var faders = document.querySelectorAll(".faderText");
-          for (let i = 0; i < faders.length; i++) {
-            faders[i].remove();
-          }
-        }, 42500)
-
-        setTimeout(() => {
-          for (let index = 0; index < 44; index++) {
-            setTimeout(() => {
-              fx(["stripeXR", "font1", "arrow"], "--->", "45%", index*3+1+"%");
-            }, 10*index*15)
-          }
-        }, 43000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "War is useless, right?", "42%", "50%");
-        }, 47000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "ABOLISH THE ARROWS! TURN THEM ROUND AND ROUND! :3", "30%", "50%");
-          var arrows = document.querySelectorAll(".arrow");
-          for (let i = 0; i < arrows.length; i++) {
-            arrows[i].classList.add("rotatingArrows");
-          }
-        }, 51000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "Since we just ended war...", "42%", "40%");
-        }, 60000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "These arrows would make a pretty scanline.", "35%", "60%");
-        }, 64000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "Let's turn them into a pretty scanline...", "35%", "40%");
-          var arrows = document.querySelectorAll(".arrow");
-          for (let i = 0; i < arrows.length; i++) {
-            arrows[i].classList.remove("rotatingArrows");
-            arrows[i].classList.add("rotatingArrowsScanline");
-          }
-        }, 66000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "There we go!! <3", "45%", "60%");
-          var arrows = document.querySelectorAll(".arrow");
-          for (let i = 0; i < arrows.length; i++) {
-            arrows[i].classList.remove("rotatingArrows");
-            arrows[i].classList.add("rotatingArrowsScanline");
-          }
-        }, 70000)
-
-        setTimeout(() => {
-          fx(["slowstripeXL", "font1"], "This is just a small demo i made. I hope you're enjoying this little scrolltext just as much as the arrow's patterns. I will gradually add content to this demo as time progresses. Thanks for sticking around for now~ <3", "45%", "85%");
-        }, 73000)
-
-        setTimeout(() => {
-          fx(["slowstripeXR", "font1"], "Code - Zarashigal; Song - Comic Bakery (mb_bakery.xm); EVERYTHING RUNS ON CyAc, OR NOTHING RUNS AT ALL.", "45%", "5%");
-        }, 76000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "Everything runs on CyAc.", "42%", "40%");
-        }, 82000)
-
-        setTimeout(() => {
-          fx(["faderText", "font1"], "Or nothing runs at all!", "42%", "60%");
-        }, 85000)
-
-        setTimeout(() => {
-          fx(["cyAc", "faderText"], "", "45%", "50%");
-        }, 89000)
+        fxloop()
 
         setInterval(() => {
 
@@ -524,6 +405,163 @@
           
         }
         }, 2)
+      }
+
+      function fxloop() {
+        try {
+          var faders = document.querySelectorAll(".fx");
+          for (let i = 0; i < faders.length; i++) {
+            faders[i].remove();
+          }
+        } catch (_) {}
+
+        setTimeout(() => {
+          document.querySelector("#startBtn").classList.add("fade0");
+        }, 500)
+
+        setTimeout(() => {
+          document.querySelector("#mainCover").classList.add("fade0");
+        }, 3000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "CYAC://ACCESS = TRUE;", "40%", "50%");
+        }, 3000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "LOADING;", "40%", "30%");
+        }, 7000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "THE;", "45%", "50%");
+        }, 9000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "TERMINAL BEAUTY;", "50%", "70%");
+        }, 11000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "How about some arrows of time? UwU", "35%", "50%");
+        }, 14000)
+      
+        setTimeout(() => {
+          for (let index = 0; index < 11; index++) {
+            setTimeout(() => {
+              fx(["fx", "stripeXL", "font1", "arrow"], "<---", "45%", index*4+10+"%");
+            }, 10*index*100)
+          }
+        }, 18000)
+      
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "Here's some more from the other side. >:3", "35%", "50%");
+        }, 28000)
+      
+        setTimeout(() => {
+          for (let index = 0; index < 11; index++) {
+            setTimeout(() => {
+              fx(["fx", "stripeXR", "font1", "arrow"], "--->", "45%", index*2+10+"%");
+            }, 10*index*30)
+          }
+        }, 30000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "ENCODING PARADIGM SHIFT", "40%", "40%");
+        }, 38000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "SUBROUTINE::AQUARIUS IMPLEMENTED", "35%", "70%");
+        }, 40000)
+
+        setTimeout(() => {
+          for (let index = 0; index < 10; index++) {
+            setTimeout(() => {
+              fx(["fx", "faderText", "font2"], "[OVERRIDE]", "25%", index*10+1+"%");
+            }, 10*index*15)
+          }
+
+          for (let index = 0; index < 10; index++) {
+            setTimeout(() => {
+              fx(["fx", "faderText", "font2"], "[OVERRIDE]", "65%", index*10+1+"%");
+            }, 10*index*15)
+          }
+        }, 40000)
+
+        setTimeout(() => {
+          var faders = document.querySelectorAll(".faderText");
+          for (let i = 0; i < faders.length; i++) {
+            faders[i].remove();
+          }
+        }, 42500)
+
+        setTimeout(() => {
+          for (let index = 0; index < 44; index++) {
+            setTimeout(() => {
+              fx(["fx", "stripeXR", "font1", "arrow"], "--->", "45%", index*3+1+"%");
+            }, 10*index*15)
+          }
+        }, 43000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "War is useless, right?", "42%", "50%");
+        }, 47000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "ABOLISH THE ARROWS! TURN THEM ROUND AND ROUND! :3", "30%", "50%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.add("rotatingArrows");
+          }
+        }, 51000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "Since we just ended war...", "42%", "40%");
+        }, 60000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "These arrows would make a pretty scanline.", "35%", "60%");
+        }, 64000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "Let's turn them into a pretty scanline...", "35%", "40%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.remove("rotatingArrows");
+            arrows[i].classList.add("rotatingArrowsScanline");
+          }
+        }, 66000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "There we go!! <3", "45%", "60%");
+          var arrows = document.querySelectorAll(".arrow");
+          for (let i = 0; i < arrows.length; i++) {
+            arrows[i].classList.remove("rotatingArrows");
+            arrows[i].classList.add("rotatingArrowsScanline");
+          }
+        }, 70000)
+
+        setTimeout(() => {
+          fx(["fx", "slowstripeXL", "font1"], "This is just a small demo i made. I hope you're enjoying this little scrolltext just as much as the arrow's patterns. I will gradually add content to this demo as time progresses. Thanks for sticking around for now~ <3", "45%", "85%");
+        }, 73000)
+
+        setTimeout(() => {
+          fx(["fx", "slowstripeXR", "font1"], "Code - Zarashigal; Song - Comic Bakery (mb_bakery.xm); EVERYTHING RUNS ON CyAc, OR NOTHING RUNS AT ALL.", "45%", "5%");
+        }, 76000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "Everything runs on CyAc.", "42%", "40%");
+        }, 82000)
+
+        setTimeout(() => {
+          fx(["fx", "faderText", "font1"], "Or nothing runs at all!", "42%", "60%");
+        }, 85000)
+
+        setTimeout(() => {
+          fx(["fx", "cyAc", "faderText"], "", "45%", "50%");
+        }, 89000)
+
+        setTimeout(() => {
+          fxloop();
+        }, 150000)
+
       }
 
 
