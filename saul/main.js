@@ -3,7 +3,7 @@ vid.controls = false;
 
 var ended = false;
 var cardsList = [];
-var cardNums = 13;
+var cardNums = 14;
 
 Array.prototype.aRand = function () {    
   return this[Math.floor(Math.random()*this.length)];
