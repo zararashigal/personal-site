@@ -59,7 +59,6 @@ function start () {
 
     vid.addEventListener("ended", (event) => {
         if (!ended) {
-            vid.currentTime = 0.01;
             ended = true;
             doCards();
         }
