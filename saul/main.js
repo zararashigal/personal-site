@@ -13,33 +13,33 @@ for (let i = 1; i <= cardNums; i++) {
     cardsList.push (`cards/${i}.mp4`);
 }
 
-    let preloads = document.querySelectorAll(".preloader");
+    let preloads = document.querySelectorAll (".preloader");
 
     preloads.forEach ((e) => {
-        e.controls = false
-        e.remove ()
+        e.controls = false;
+        e.remove ();
     });
 
-    let cs = document.querySelectorAll(".card");
+    let cs = document.querySelectorAll (".card");
 
     cs.forEach ((e) => {
-        e.controls = false
+        e.controls = false;
     });
 
 function doCards () {
 
     for (let i = 1; i <= 5; i++) {
 
-        let card = document.createElement("video");
-        card.src = cardsList.aRand();
-        card.classList.add("card");
+        let card = document.createElement ("video");
+        card.src = cardsList.aRand ();
+        card.classList.add ("card");
         card.controls = false;
         card.addEventListener ("mouseenter", () => {
-            card.play();
+            card.play ();
         });
         
         card.addEventListener ("mouseleave", () => {
-            card.pause();
+            card.pause ();
             card.currentTime = 0;
         });
 
@@ -47,13 +47,13 @@ function doCards () {
 
     }
 
-    document.getElementById ("cards").scrollIntoView ({ behavior: "smooth" });
+    /* document.getElementById ("cards").scrollIntoView ({ behavior: "smooth" }); */
 
 }
 
 function start () {
 
-    let allCards = document.querySelectorAll(".card");
+    let allCards = document.querySelectorAll (".card");
 
     allCards.forEach ((e) => {
         try { e.remove () } catch (_) {};
@@ -63,9 +63,9 @@ function start () {
 
     try { 
         
-        vid.currentTime = 0.01;
+        vid.currentTime = 0;
         
-        setTimeout( () => {
+        setTimeout(() => {
             vid.play ()
         }, 5);
 
@@ -75,7 +75,8 @@ function start () {
 
         if (!ended) {
             ended = true;
-            doCards();
+            doCards ();
+            vid.currentTime = 0;
         }
 
     }) } catch (_) {};
