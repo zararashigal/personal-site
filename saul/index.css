@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Crafty+Girls&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    background: #000000;
+}
+
+#booster {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    width: 20%;
+}
+
+#cards {
+    position: absolute;
+    top: 80%;
+    background: #00000000;
+    width: 100%;
+    height: 35%;
+    padding-bottom: 15%;
+}
+
+#start {
+    text-align: center;
+    display: flex;
+    align-items: center; /* Vertical center alignment */
+    justify-content: center; /* Horizontal center alignment */
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    width: 128px;
+    height: 50px;
+    border-radius: 10px;
+    top: 65%;
+    left: 51%;
+    transform: translateX(-50%);
+    background: linear-gradient(142deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: "BBH Bogle", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+}
