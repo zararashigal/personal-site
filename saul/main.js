@@ -3,7 +3,7 @@ var ended = false;
 var cardsList = [];
 var cardNums = 13;
 
-Array.prototype.aRand = function(){
+Array.prototype.aRand = function () {    
   return this[Math.floor(Math.random()*this.length)];
 }
 
@@ -16,9 +16,6 @@ for (let i = 1; i <= cardNums; i++) {
     preloads.forEach ((e) => {
         try { e.remove () } catch (_) {}
     });
-
-
-console.log(cardsList);
 
 function doCards () {
 
@@ -50,18 +47,20 @@ function start () {
     let allCards = document.querySelectorAll(".card");
 
     allCards.forEach ((e) => {
-        try { e.remove () } catch (_) {}
+        try { e.remove () } catch (_) {};
     });
 
     ended = false;
-    vid.play();
-    vid.currentTime = 0.01;
+    try { vid.play () } catch (_) {};
+    try { vid.currentTime = 0.01 } catch (_) {};
+    
+    try { vid.addEventListener("ended", (event) => {
 
-    vid.addEventListener("ended", (event) => {
         if (!ended) {
             ended = true;
             doCards();
         }
-    });
+
+    }) } catch (_) {};
 
 }
