@@ -63,7 +63,7 @@ function start () {
 
     try { 
         
-        vid.currentTime = 0;
+        vid.currentTime = 0.001;
         
         setTimeout(() => {
             vid.play ()
@@ -76,7 +76,7 @@ function start () {
         if (!ended) {
             ended = true;
             doCards ();
-            vid.currentTime = 0;
+            vid.currentTime = 0.001;
         }
 
     }) } catch (_) {};
