@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Crafty+Girls&display=swap');
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 body {
