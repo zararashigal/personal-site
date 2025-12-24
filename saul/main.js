@@ -11,12 +11,12 @@ for (let i = 1; i <= cardNums; i++) {
     cardsList.push (`cards/${i}.mp4`);
 }
 
-for (let i = 1; i <= cardNums; i++) {
-    let card = document.createElement("video");
-    card.src = `cards/${i}.mp4`;
-    document.getElementById ("cards").appendChild(card);
-    card.remove();
-}
+    let preloads = document.querySelectorAll(".preloader");
+
+    preloads.forEach ((e) => {
+        try { e.remove () } catch (_) {}
+    });
+
 
 console.log(cardsList);
 
