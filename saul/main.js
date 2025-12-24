@@ -60,8 +60,16 @@ function start () {
     });
 
     ended = false;
-    try { vid.play () } catch (_) {};
-    try { vid.currentTime = 0.01 } catch (_) {};
+
+    try { 
+        
+        vid.currentTime = 0.01;
+        
+        setTimeout( () => {
+            vid.play ()
+        }, 5);
+
+    } catch (_) {};
     
     try { vid.addEventListener("ended", (event) => {
 
