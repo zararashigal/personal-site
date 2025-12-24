@@ -35,8 +35,6 @@ function doCards () {
 
     document.getElementById ("cards").scrollIntoView ({ behavior: "smooth" });
 
-
-
 }
 
 function start () {
