@@ -28,7 +28,7 @@ for (let i = 1; i <= cardNums; i++) {
 
 function doCards () {
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
 
         let card = document.createElement ("video");
         card.src = cardsList.aRand ();
