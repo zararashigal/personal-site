@@ -16,8 +16,14 @@ for (let i = 1; i <= cardNums; i++) {
     let preloads = document.querySelectorAll(".preloader");
 
     preloads.forEach ((e) => {
-        try { e.controls = false } catch (_) {}
-        try { e.remove () } catch (_) {}
+        e.controls = false
+        e.remove ()
+    });
+
+    let cs = document.querySelectorAll(".card");
+
+    cs.forEach ((e) => {
+        e.controls = false
     });
 
 function doCards () {
@@ -27,7 +33,7 @@ function doCards () {
         let card = document.createElement("video");
         card.src = cardsList.aRand();
         card.classList.add("card");
-
+        card.controls = false;
         card.addEventListener ("mouseenter", () => {
             card.play();
         });
