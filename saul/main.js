@@ -1,13 +1,21 @@
 var vid = document.getElementById ("boostervid");
 var ended = false;
 var cardsList = [];
+var cardNums = 13;
 
 Array.prototype.aRand = function(){
   return this[Math.floor(Math.random()*this.length)];
 }
 
-for (let i = 1; i <= 13; i++) {
+for (let i = 1; i <= cardNums; i++) {
     cardsList.push (`cards/${i}.mp4`);
+}
+
+for (let i = 1; i <= cardNums; i++) {
+    let card = document.createElement("video");
+    card.src = `cards/${i}.mp4`;
+    document.getElementById ("cards").appendChild(card);
+    card.remove();
 }
 
 console.log(cardsList);
