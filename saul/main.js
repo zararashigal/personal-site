@@ -1,4 +1,6 @@
 var vid = document.getElementById ("boostervid");
+vid.controls = false;
+
 var ended = false;
 var cardsList = [];
 var cardNums = 13;
@@ -14,6 +16,7 @@ for (let i = 1; i <= cardNums; i++) {
     let preloads = document.querySelectorAll(".preloader");
 
     preloads.forEach ((e) => {
+        try { e.controls = false } catch (_) {}
         try { e.remove () } catch (_) {}
     });
 
