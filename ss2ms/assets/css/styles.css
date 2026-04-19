@@ -34,3 +34,7 @@ span {
   border: none;
 }
 
+.hideRoom {
+  display: none;
+}
+

@@ -6,6 +6,7 @@ async function search4lobby () {
             throw new Error(`Response status: ${response.status}`);
         }
         let result = await response.json();
-        console.log(result);
+        await document.getElementById("foundCode").classList.remove("hideRoom");
+        document.getElementById("foundCode").innerHTML = await `Found Lobby! Roomcode: ${result[Math.floor(Math.random() * result.length)]}`
     } catch(_){}
 }
