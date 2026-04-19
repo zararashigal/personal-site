@@ -7,7 +7,7 @@ async function search4lobby () {
         }
         let result = await response.json();
         await document.getElementById("foundCode").classList.remove("hideRoom");
-        document.getElementById("foundCode").innerHTML = await `Found Lobby! Roomcode: ${result[Math.floor(Math.random() * result.length)]}`;
+        document.getElementById("foundCode").innerHTML = await result[Math.floor(Math.random() * result.length)] == undefined ? "There are currently no lobbies. Refresh in a bit!" : `Found Lobby! Roomcode: ${result[Math.floor(Math.random() * result.length)]}`;
     } catch(_){}
 }
 
