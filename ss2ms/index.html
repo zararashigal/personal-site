@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ss2ms</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css?h=3208f21e66b8c7ebc62369b77084529f">
+    <link rel="stylesheet" href="assets/css/styles.css?h=6e1fffe77f76135ec463c78f3a945214">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-secondary">
+        <div class="container-fluid"><a class="navbar-brand" href="#">SS2MS</a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav><!-- Start: 2 Rows 1+1 Columns -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="m-3">I WANT TO HOST A LOBBY -&gt;</h1>
+                <form method="get" action="https://shodan.zarashigal.eu.org/host"><label class="form-label m-1">Room Code</label><input class="form-control m-1" type="text" id="room" required="" minlength="4" maxlength="4" name="roomCode"><input class="btn btn-primary m-1" type="submit" value="Add to Pool"></form>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h1 class="m-2">I WANT TO JOIN A LOBBY -&gt;</h1><button class="btn btn-primary m-2" type="button" onclick="search4lobby()">Search for a Lobby</button>
+            </div>
+        </div>
+    </div><!-- End: 2 Rows 1+1 Columns -->
+    <div class="container mt-5">
+        <h1>HOW DOES IT WORK?</h1>
+        <p><strong><span style="text-decoration: underline;">If you want to search for a lobby:</span></strong><br>1. Start System Shock 2 Anniversary<br>2. Click Multiplayer<br>3. Click Online<br>4. Click Join Code<br>5. In SS2MS, click Search for a Lobby<br>6. Give it a bit...<br>7. Ingame, copy the Room Code you have received into the textbox.<br>8. Click join.<br><strong><span style="text-decoration: underline;">If you want to host a lobby for others to search for:</span></strong><br>1. Start System Shock 2 Anniversary<br>2. Click Multiplayer<br>3. Click Online<br>4. Click Host Game<br>5. Choose a save or a new session<br>6. Copy the Room Code in the lower right into the textfield.<br>7. Click Add to Pool.<br><strong>NOTE: Re-add your room code to the lobby pool after about 2 minutes, lobby instances decay to avoid abuse.</strong></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js?h=cbe94f33737b6bb59de227366352fb12"></script>
+</body>
+
+</html>

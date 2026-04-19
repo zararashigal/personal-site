@@ -1,0 +1,36 @@
+.btn {
+  background: black;
+  border: lime;
+  border-style: solid;
+}
+
+body {
+  color: lime;
+  background: black;
+}
+
+#room {
+  color: lime;
+  background: black;
+  border: lime;
+  border-style: dashed;
+}
+
+.navbar * {
+  background: #333333 !important;
+  color: lime;
+}
+
+html * {
+  background: black;
+}
+
+span {
+  color: lime !important;
+}
+
+.navbar-toggler {
+  color: lime;
+  border: none;
+}
+
